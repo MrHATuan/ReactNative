@@ -6,36 +6,25 @@ import {
 
 var deviceScreen = require('Dimensions').get('window');
 
-var URL_API = 'http://localhost/tuanha/AppCancer_API/Category.php';
-var URL     = 'http://localhost/tuanha/AppCancer_API/Sickness.php';
+var URL     = 'http://localhost/tuanha/AppCancer_API/SicknessNews.php';
 
 class Category extends Component {
     constructor(props) {
         super(props);
+        var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
         this.state = {
-            dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+            dataSource: ds.cloneWithRows(this.props.passProps.sickness),
         };
         this.pushView = this.pushView.bind(this);
     }
 
-    fetchData() {
-        fetch(URL_API, {method: "POST", body: null})
-            .then((response) => response.json())
-            .then((responseData) => {
-                this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData)
-                })
-            })
-            .done()
-    }
-
-    pushView(id, name) {
-        fetch(URL, {method: "POST", body: JSON.stringify({categoryId: id})})
+    pushView(name) {
+        fetch(URL, {method: "POST", body: JSON.stringify({sickName: name})})
             .then((response) => response.json())
             .then((responseData) => {
                 this.props.navigator.push({
-                    name: 'Sickness',
-                    component: require('./Sickness'),
+                    name: 'SicknessNews',
+                    component: require('./SicknessNews'),
                     props: {title: name, sickness: responseData}
                 });
             })
@@ -48,9 +37,9 @@ class Category extends Component {
 
     createRows(property) {
         return(
-            <TouchableOpacity style={styles.rows} onPress={() => this.pushView(property.categoryId, property.categoryName)}>
+            <TouchableOpacity style={styles.rows} onPress={() => this.pushView(property.sickName)}>
                 <View style={styles.titleCatagory}>
-                    <Text style={styles.nameCatagory}>{property.categoryName}</Text>
+                    <Text style={styles.nameCatagory}>{property.sickName}</Text>
                 </View>
             </TouchableOpacity>
         )
@@ -62,10 +51,10 @@ class Category extends Component {
                 <StatusBar hidden={true} />
                 <View style={styles.header}>
                     <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigator.pop()}>
-                        <Text style={styles.titleHeader}>Back</Text>    
+                        <Text style={styles.titleHeader}>Back</Text>
                     </TouchableOpacity>
                     <View style={styles.titleBox}>
-                        <Text style={styles.titleHeader}>Tin Tuc</Text>
+                        <Text style={styles.titleHeader}>{this.props.passProps.title}</Text>
                     </View>
                 </View>
 

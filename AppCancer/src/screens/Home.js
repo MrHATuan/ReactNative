@@ -17,18 +17,18 @@ class Home extends Component {
             dataSource: ds.cloneWithRows(MENU),
             hidden: true
         };
-        this._pushView = this._pushView.bind(this);
+        // this._pushView = this._pushView.bind(this);
         this.createRows = this.createRows.bind(this);
     }
 
-    _pushView(menuName) {
-        if(menuName == "Tin Tức") {
-            this.props.navigator.push({
-                name: 'Components',
-                component: require('./Category'),
-                props: {title: menuName}
-            });
-        }
+    // _pushView(menuName) {
+        // if(menuName == "Tin Tức") {
+        //     this.props.navigator.push({
+        //         name: 'Components',
+        //         component: require('./Category'),
+        //         props: {title: menuName}
+        //     });
+        // }
         // if(menuName == "Hỏi đáp") {
         //     this.props.navigator.push({
         //         name: 'Components',
@@ -43,11 +43,11 @@ class Home extends Component {
         //         props: {title: menuName}
         //     });
         // }
-    }
+    // }
 
     createRows(property) {
         return (
-            <TouchableOpacity style={styles.rows} onPress={() => this._pushView(property.name)}>
+            <TouchableOpacity style={styles.rows}>
                 <View style={styles.title}>
                     <Text style={styles.text}>{property.name}</Text>
                 </View>
@@ -59,9 +59,9 @@ class Home extends Component {
         return (
             <View style={styles.container}>
                 <StatusBar hidden={this.state.hidden}/>
-                <View style={styles.header}>
+                {/*<View style={styles.header}>
                     <Text style={styles.headerText}></Text>
-                </View>
+                </View>*/}
                 <View style={styles.listMenu}>
                     <ListView dataSource={this.state.dataSource}
                     renderRow={this.createRows} />
