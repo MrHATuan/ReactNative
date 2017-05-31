@@ -4,5 +4,8 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
-
+    <style name="Dialog.Theme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#FF0000</item>
+        <item name="android:textColorPrimary">#0000FF</item>
+    </style>
 </resources>

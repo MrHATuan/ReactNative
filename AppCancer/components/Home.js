@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Text, View, StyleSheet, ListView, StatusBar, TouchableOpacity
+    Text, View, StyleSheet, ListView, StatusBar, TouchableOpacity, DatePickerAndroid, TouchableWithoutFeedback
 } from 'react-native';
 
 var MENU = [
@@ -15,7 +15,7 @@ class Home extends Component {
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             dataSource: ds.cloneWithRows(MENU),
-            hidden: true
+            hidden: true,
         };
         this._pushView = this._pushView.bind(this);
         this.createRows = this.createRows.bind(this);
@@ -23,11 +23,7 @@ class Home extends Component {
 
     _pushView(menuName) {
         if(menuName == "Tin Tức") {
-            this.props.navigator.push({
-                name: 'Components',
-                component: require('./Category'),
-                props: {title: menuName}
-            });
+            this.props.navigation.navigate('Category');
         }
         // if(menuName == "Hỏi đáp") {
         //     this.props.navigator.push({
@@ -60,7 +56,7 @@ class Home extends Component {
             <View style={styles.container}>
                 <StatusBar hidden={this.state.hidden}/>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}></Text>
+                    <Text style={styles.headerText}>Trang Chủ</Text>
                 </View>
                 <View style={styles.listMenu}>
                     <ListView dataSource={this.state.dataSource}
@@ -87,7 +83,7 @@ var styles = StyleSheet.create({
         fontWeight: '400',
     },
     listMenu: {
-        flex: 1,
+        flex: 10,
         backgroundColor: 'white',
     },
     rows: {
@@ -99,7 +95,7 @@ var styles = StyleSheet.create({
     },
     title: {
         flex: 1,
-        justifyContent: 'center',
+        alignItems: 'center',
     },
     text: {
         fontSize: 18,
