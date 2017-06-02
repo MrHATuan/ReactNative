@@ -7,14 +7,17 @@ var styles = StyleSheet.create({
         flex: 1,
     },
     datepicker: {
-        // flex: 1,
         paddingTop: 30,
         paddingBottom: 30,
         alignItems: 'center',
     },
+    viewPrize: {
+        flex: 10,
+        alignItems: 'center',
+    },
     tableView: {
         flex: 1,
-        // marginTop: 20,
+        width: '100%',
         borderWidth: 4,
         borderColor: '#7e7e7e',
         backgroundColor: '#fff',
@@ -24,7 +27,8 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomWidth: 1,
-        borderColor: '#7E7E7E',
+        borderColor: '#000',
+        padding: 5,
     },
     tableTitle: {
         fontSize: 20,
@@ -36,34 +40,8 @@ var styles = StyleSheet.create({
         fontWeight: '100',
         color: '#990000',
     },
-    flexRows: {
-        flexDirection: 'row',
-        // flex: 1,
-    },
-    flexColumn: {
-        // flex: 1,
-        flexDirection: 'column',
-    },
-    flex1: {
-        flex: 1,
-    },
-    flex2: {
-        flex: 2,
-    },
-    flex3: {
-        flex:  3,
-    },
-    flex4: {
-        flex: 4,
-    },
-    flex6: {
-        flex: 6,
-    },
-    flex12: {
-        flex: 12,
-    },
     prizeTitle: {
-        flex: 3,
+        // flex: 3,
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomWidth: 1,
@@ -82,6 +60,33 @@ var styles = StyleSheet.create({
         borderRightWidth: 1,
         borderBottomWidth: 1,
         borderColor: '#ccc',
+    },
+    flexRows: {
+        flexDirection: 'row',
+    },
+    flexColumn: {
+        flexDirection: 'column',
+    },
+    flex1: {
+        flex: 1,
+    },
+    flex2: {
+        flex: 2,
+    },
+    flex3: {
+        flex:  3,
+    },
+    flex4: {
+        flex: 4,
+    },
+    flex6: {
+        flex: 6,
+    },
+    flex10: {
+        flex: 10,
+    },
+    flex12: {
+        flex: 12,
     },
     prizeNumber: {
         fontSize: 15,
