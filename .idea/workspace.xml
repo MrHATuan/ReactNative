@@ -5,17 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8e31a4-c133-40e6-a479-ef2fc92e0c38" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppCancer/components/Category.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppCancer/components/Home.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppCancer/components/Sickness.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppCancer/components/SicknessNews.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppCancer/src/screens/Calendar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.babelrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.buckconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.flowconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.gitattributes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.watchmanconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/SucKhoe.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/__tests__/index.android.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/__tests__/index.ios.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/BUCK" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/build.gradle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/proguard-rules.pro" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/java/com/appcancer/MainActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/java/com/appcancer/MainApplication.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/values/strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/values/styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/build.gradle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradle.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradle/wrapper/gradle-wrapper.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradle/wrapper/gradle-wrapper.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradlew" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradlew.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/keystores/BUCK" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/keystores/debug.keystore.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/settings.gradle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/app.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/google_calendar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/index.android.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/index.android_old.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/index.ios.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/index.ios_old.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer-tvOS/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer-tvOSTests/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer.xcodeproj/project.pbxproj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer.xcodeproj/xcshareddata/xcschemes/AppCancer-tvOS.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer.xcodeproj/xcshareddata/xcschemes/AppCancer.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/AppDelegate.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/AppDelegate.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/Base.lproj/LaunchScreen.xib" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/Images.xcassets/AppIcon.appiconset/Contents.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/main.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancerTests/AppCancerTests.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancerTests/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/src/App.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/src/Router.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/src/screens/Home.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/stylesheets/HomeStyle.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppCancer/index.android.js" afterPath="$PROJECT_DIR$/AppCancer/index.android.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppCancer/index.ios.js" afterPath="$PROJECT_DIR$/AppCancer/index.ios.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppCancer/package.json" afterPath="$PROJECT_DIR$/AppCancer/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppCancer/src/screens/Home.js" afterPath="$PROJECT_DIR$/AppCancer/src/screens/Home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppCancer/stylesheets/HomeStyle.js" afterPath="$PROJECT_DIR$/AppCancer/stylesheets/HomeStyle.js" />
     </list>
     <ignored path="React.iws" />
     <ignored path=".idea/workspace.xml" />
