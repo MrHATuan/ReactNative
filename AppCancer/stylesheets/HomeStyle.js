@@ -8,19 +8,16 @@ var styles = StyleSheet.create({
     },
     datepicker: {
         // flex: 1,
-        paddingTop: 20,
-        alignItems: 'center',
-    },
-    webView: {
-        // flex: 2,
-        marginTop: 20,
+        paddingTop: 30,
+        paddingBottom: 30,
         alignItems: 'center',
     },
     tableView: {
         flex: 1,
-        marginTop: 20,
+        // marginTop: 20,
         borderWidth: 4,
         borderColor: '#7e7e7e',
+        backgroundColor: '#fff',
     },
     tableHeader: {
         flex: 1,
@@ -39,16 +36,39 @@ var styles = StyleSheet.create({
         fontWeight: '100',
         color: '#990000',
     },
-    listResuilt: {
+    flexRows: {
         flexDirection: 'row',
+        // flex: 1,
+    },
+    flexColumn: {
+        // flex: 1,
+        flexDirection: 'column',
+    },
+    flex1: {
         flex: 1,
     },
+    flex2: {
+        flex: 2,
+    },
+    flex3: {
+        flex:  3,
+    },
+    flex4: {
+        flex: 4,
+    },
+    flex6: {
+        flex: 6,
+    },
+    flex12: {
+        flex: 12,
+    },
     prizeTitle: {
-        flex: 1,
+        flex: 3,
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 1,
-        borderColor: '#ccc',
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
+        borderRightWidth: 1,
         borderRightColor: '#7E7E7E',
     },
     prizeName: {
@@ -59,7 +79,8 @@ var styles = StyleSheet.create({
     prizeContent: {
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 1,
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
         borderColor: '#ccc',
     },
     prizeNumber: {
@@ -67,18 +88,10 @@ var styles = StyleSheet.create({
         fontWeight: '400',
         color: '#000',
     },
-    rowOne: {
-        flex: 12,
+    colorRed: {
+        color: '#ff0000',
     },
-    rowTwo: {
-        flex: 6,
-    },
-    rowThree: {
-        flex: 4,
-    },
-    rowFour: {
-        flex: 3,
-    },
+    
 });
 
 export default styles;

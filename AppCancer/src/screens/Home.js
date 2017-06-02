@@ -8,137 +8,183 @@ import Moment from 'moment';
 
 import Style from '../../stylesheets/HomeStyle';
 
-var htmlView = '<style type="text/css">td {border: 1px solid #ccc; border-collapse: collapse;}</style>' +
-                '<table style="text-align: center; border: 4px solid #7e7e7e; width: 100%;">' +
-                    '<thead>' +
-                        '<tr><td colspan="13"><h2>XỔ SỐ TRUYỀN THỐNG</h2></td></tr>' +
-                    '</thead>' +
-                    '<tbody>' +
-                        '<tr>' +
-                            '<td>Đặc biệt</td>' +
-                            '<td colspan="12">59431</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                            '<td>Giải nhất</td>' +
-                            '<td colspan="12">62264</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                            '<td>Giải nhì</td>' +
-                            '<td colspan="6">19529</td>' +
-                            '<td colspan="6">91706</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                            '<td rowspan="2">Giải ba</td>' +
-                            '<td colspan="4">42212</td>' +
-                            '<td colspan="4">52807</td>' +
-                            '<td colspan="4">68981</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                            '<td colspan="4">39571</td>' +
-                            '<td colspan="4">64597</td>' +
-                            '<td colspan="4">92204</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                            '<td>Giải tư</td>' +
-                            '<td colspan="3">1000</td>' +
-                            '<td colspan="3">8339</td>' +
-                            '<td colspan="3">0010</td>' +
-                            '<td colspan="3">4054</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                            '<td rowspan="2">Giải năm</td>' +
-                            '<td colspan="4">7981</td>' +
-                            '<td colspan="4">5617</td>' +
-                            '<td colspan="4">8195</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                            '<td colspan="4">9506</td>' +
-                            '<td colspan="4">1720</td>' +
-                            '<td colspan="4">5192</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                            '<td>Giải sáu</td>' +
-                            '<td colspan="4">261</td>' +
-                            '<td colspan="4">107</td>' +
-                            '<td colspan="4">351</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                            '<td>Giải bảy</td>' +
-                            '<td colspan="3">14</td>' +
-                            '<td colspan="3">75</td>' +
-                            '<td colspan="3">25</td>' +
-                            '<td colspan="3">80</td>' +
-                        '</tr>' +
-                    '</tbody>' +
-                '</table>';
-
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            URL_API: 'http://ketqua.net/xo-so-truyen-thong.php?ngay=',
-            dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
-            date: new Date(),
+            dataPrize: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
+            date: Moment(new Date()).format('DD-MM-YYYY'),
         };
-        this.createViewTable = this.createViewTable.bind(this);
+        // this.createViewTable = this.createViewTable.bind(this);
     }
 
     fetchData(date) {
         var URL = 'http://ketqua.net/xo-so-truyen-thong.php?ngay=' + date;
+        var dataPrize = {};
 
-        this.setState({URL_API: URL})
+        var request = new XMLHttpRequest();
+        request.open('GET', URL, true);
+        request.send();
 
-        // fetch(URL, {method: "POST", body: null})
-        //     .then((response) => response.json())
-        //     .then((responseJson) => {
-        //         console.log(responseJson);
-        //         // this.setState({
-        //         //     dataSource: this.state.dataSource.cloneWithRows(responseJson)
-        //         // });
-        //     })
-        //     .catch((error) => {
-        //         console.warn(error);
-        //     })
-        //     .done();
+        request.onreadystatechange = (e) => {
+            if (request.readyState !== 4) {
+                return;
+            }
+
+            if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                var res = request.responseText.match();
+                // console.log(request.response);
+                console.log(request.responseText);
+            } else {
+                console.warn('connected error');
+            }
+        };
+
     }
 
-
-    componentDidMount() {
-        this.fetchData(Moment(this.state.date).format('DD-MM-YYYY'));
+    componentWillMount() {
+        this.fetchData(this.state.date);
     }
 
-    createViewTable() {
+    createViewTable(property) {
        return(
             <View style={Style.tableView}>
                 <View style={Style.tableHeader}>
                     <Text style={Style.tableTitle}>XỔ SỐ TRUYỀN THỐNG</Text>
-                    <Text style={Style.tableDate}>{Moment(this.state.date).format('ddd DD-MM-YYYY')}</Text>
+                    <Text style={Style.tableDate}>{property.lotteryDay}</Text>
                 </View>
-                <View style={Style.listResuilt}>
-                    <View style={Style.prizeTitle}>
-                        <Text style={Style.prizeName}>Đặc biệt</Text>
+                <View style={[Style.flexRows, Style.flex1]}>
+                    <View style={[Style.prizeTitle, Style.flex3]}>
+                        <Text style={[Style.prizeName, Style.colorRed]}>Đặc biệt</Text>
                     </View>
-                    <View style={[Style.prizeContent, Style.rowOne]}>
-                        <Text style={Style.prizeNumber}>59431</Text>
+                    <View style={[Style.prizeContent, Style.flex12]}>
+                        <Text style={[Style.prizeNumber, Style.colorRed]}>59431</Text>
                     </View>
                 </View>
-                <View style={Style.listResuilt}>
-                    <View style={Style.prizeTitle}>
+                <View style={[Style.flexRows, Style.flex1]}>
+                    <View style={[Style.prizeTitle, Style.flex3]}>
                         <Text style={Style.prizeName}>Giải nhất</Text>
                     </View>
-                    <View style={[Style.prizeContent, Style.rowOne]}>
+                    <View style={[Style.prizeContent, Style.flex12]}>
                         <Text style={Style.prizeNumber}>62264</Text>
                     </View>
                 </View>
-                <View style={Style.listResuilt}>
-                    <View style={Style.prizeTitle}>
+                <View style={[Style.flexRows, Style.flex1]}>
+                    <View style={[Style.prizeTitle, Style.flex3]}>
                         <Text style={Style.prizeName}>Giải nhì</Text>
                     </View>
-                    <View style={[Style.prizeContent, Style.rowTwo]}>
+                    <View style={[Style.prizeContent, Style.flex6]}>
                         <Text style={Style.prizeNumber}>19529</Text>
                     </View>
-                    <View style={[Style.prizeContent, Style.rowTwo]}>
+                    <View style={[Style.prizeContent, Style.flex6]}>
                         <Text style={Style.prizeNumber}>91706</Text>
+                    </View>
+                </View>
+                <View style={[Style.flexRows, Style.flex1]}>
+                    <View style={[Style.prizeTitle, Style.flex3]}>
+                        <Text style={Style.prizeName}>Giải ba</Text>
+                    </View>
+                    <View style={Style.flex12}>
+                        <View style={[Style.flexRows, Style.flex1]}>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>63512</Text>
+                            </View>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>16388</Text>
+                            </View>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>91015</Text>
+                            </View>
+                        </View>
+                        <View style={[Style.flexRows, Style.flex1]}>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>63512</Text>
+                            </View>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>16388</Text>
+                            </View>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>91015</Text>
+                            </View>
+                        </View>
+                    </View>
+                    
+                </View>
+                <View style={[Style.flexRows, Style.flex1]}>
+                    <View style={[Style.prizeTitle, Style.flex3]}>
+                        <Text style={Style.prizeName}>Giải tư</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex3]}>
+                        <Text style={Style.prizeNumber}>3926</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex3]}>
+                        <Text style={Style.prizeNumber}>7461</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex3]}>
+                        <Text style={Style.prizeNumber}>1925</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex3]}>
+                        <Text style={Style.prizeNumber}>2810</Text>
+                    </View>
+                </View>
+                <View style={[Style.flexRows, Style.flex1]}>
+                    <View style={[Style.prizeTitle, Style.flex3]}>
+                        <Text style={Style.prizeName}>Giải năm</Text>
+                    </View>
+                    <View style={[Style.flex12, Style.flexColumn]}>
+                        <View style={[Style.flexRows, Style.flex1]}>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>9910</Text>
+                            </View>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>1193</Text>
+                            </View>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>5161</Text>
+                            </View>
+                        </View>
+                        <View style={[Style.flexRows, Style.flex1]}>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>9910</Text>
+                            </View>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>1193</Text>
+                            </View>
+                            <View style={[Style.prizeContent, Style.flex1]}>
+                                <Text style={Style.prizeNumber}>5161</Text>
+                            </View>
+                        </View>
+                    </View>
+                </View>
+                <View style={[Style.flexRows, Style.flex1]}>
+                    <View style={[Style.prizeTitle, Style.flex3]}>
+                        <Text style={Style.prizeName}>Giải sáu</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex4]}>
+                        <Text style={Style.prizeNumber}>738</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex4]}>
+                        <Text style={Style.prizeNumber}>750</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex4]}>
+                        <Text style={Style.prizeNumber}>694</Text>
+                    </View>
+                </View>
+                <View style={[Style.flexRows, Style.flex1]}>
+                    <View style={[Style.prizeTitle, Style.flex3]}>
+                        <Text style={Style.prizeName}>Giải bảy</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex3]}>
+                        <Text style={Style.prizeNumber}>88</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex3]}>
+                        <Text style={Style.prizeNumber}>71</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex3]}>
+                        <Text style={Style.prizeNumber}>09</Text>
+                    </View>
+                    <View style={[Style.prizeContent, Style.flex3]}>
+                        <Text style={Style.prizeNumber}>90</Text>
                     </View>
                 </View>
             </View>
@@ -146,6 +192,8 @@ class Home extends Component {
     }
 
     render() {
+        Moment.locale('vi');
+
         return(
             <View style={Style.container}>
                 <StatusBar hidden={true} />
@@ -155,18 +203,17 @@ class Home extends Component {
                         style={{width: 300}}
                         date={this.state.date}
                         mode="date"
-                        placeholder="placeholder"
                         format="DD-MM-YYYY"
+                        minDate="01-01-2006"
                         maxDate={new Date()}
                         confirmBtnText="Confirm"
                         cancelBtnText="Cancel"
-                        locale="vi"
-                        customStyle={{
+                        customStyles={{
                             dateIcon: {
                                 position: 'absolute',
                                 left: 0,
                                 top: 4,
-                                marginLeft: 0,
+                                marginLeft: 0
                             },
                             dateInput: {
                                 marginLeft: 40,
@@ -175,16 +222,16 @@ class Home extends Component {
                             },
                             dateText: {
                                 fontSize: 20,
+                                fontWeight: '400',
                             },
                         }}
                         onDateChange={(date) => {this.setState({date: date}), this.fetchData(date)}}
                     />
                 </View>
-                
-                {/*<WebView style={Style.webView}
-                    source={{html: htmlView}}
-                />*/}
-                {this.createViewTable()}
+
+                {/*<ListView dataSource = {this.state.dataPrize}
+                renderRow = {this.createViewTable.bind(this)} />*/}
+
             </View>
 
         );
