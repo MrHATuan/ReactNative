@@ -5,60 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8e31a4-c133-40e6-a479-ef2fc92e0c38" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.babelrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.buckconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.flowconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.gitattributes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/.watchmanconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/SucKhoe.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/__tests__/index.android.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/__tests__/index.ios.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/proguard-rules.pro" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/java/com/appcancer/MainActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/java/com/appcancer/MainApplication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/values/strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/app/src/main/res/values/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradle.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradle/wrapper/gradle-wrapper.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradle/wrapper/gradle-wrapper.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradlew" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/gradlew.bat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/keystores/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/keystores/debug.keystore.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/android/settings.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/app.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/google_calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/index.android.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/index.android_old.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/index.ios.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/index.ios_old.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer-tvOS/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer-tvOSTests/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer.xcodeproj/project.pbxproj" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer.xcodeproj/xcshareddata/xcschemes/AppCancer-tvOS.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer.xcodeproj/xcshareddata/xcschemes/AppCancer.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/AppDelegate.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/AppDelegate.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/Base.lproj/LaunchScreen.xib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/Images.xcassets/AppIcon.appiconset/Contents.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancer/main.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancerTests/AppCancerTests.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/ios/AppCancerTests/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/src/App.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/src/Router.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/src/screens/Home.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AppLoto/stylesheets/HomeStyle.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="React.iws" />
@@ -86,10 +32,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1848" />
-    <option name="y" value="85" />
+    <option name="x" value="32" />
+    <option name="y" value="28" />
     <option name="width" value="1400" />
-    <option name="height" value="860" />
+    <option name="height" value="813" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -116,7 +62,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -132,8 +79,7 @@
         </subPane>
       </pane>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,7 +176,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1848" y="85" width="1400" height="860" extended-state="0" />
+    <frame x="32" y="28" width="1400" height="813" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -241,12 +187,12 @@
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952926" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952926" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952926" sideWeight="0.49701494" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35321102" sideWeight="0.49701494" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25373134" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32910448" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
