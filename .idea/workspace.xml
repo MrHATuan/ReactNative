@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8e31a4-c133-40e6-a479-ef2fc92e0c38" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PicasaApp/src/reducers/navReducer.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/android/app/build.gradle" afterPath="$PROJECT_DIR$/PicasaApp/android/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/android/build.gradle" afterPath="$PROJECT_DIR$/PicasaApp/android/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/index.android.js" afterPath="$PROJECT_DIR$/PicasaApp/index.android.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/index.ios.js" afterPath="$PROJECT_DIR$/PicasaApp/index.ios.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/package.json" afterPath="$PROJECT_DIR$/PicasaApp/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/App.js" afterPath="$PROJECT_DIR$/PicasaApp/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/components/login/Login.js" afterPath="$PROJECT_DIR$/PicasaApp/src/components/login/Login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/reducers/index.js" afterPath="$PROJECT_DIR$/PicasaApp/src/reducers/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/store/configureStore.js" afterPath="$PROJECT_DIR$/PicasaApp/src/store/configureStore.js" />
     </list>
     <ignored path="React.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +42,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="32" />
-    <option name="y" value="28" />
-    <option name="width" value="1400" />
-    <option name="height" value="813" />
+    <option name="x" value="350" />
+    <option name="y" value="46" />
+    <option name="width" value="1222" />
+    <option name="height" value="755" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -62,7 +72,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
@@ -78,8 +89,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -176,7 +186,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="32" y="28" width="1400" height="813" extended-state="0" />
+    <frame x="350" y="46" width="1222" height="755" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -187,12 +197,13 @@
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952926" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952926" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35321102" sideWeight="0.49701494" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38758388" sideWeight="0.49701494" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25373134" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29259896" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32910448" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37951806" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />

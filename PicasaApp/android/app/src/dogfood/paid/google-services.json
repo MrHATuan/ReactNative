@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "125267211347",
+    "firebase_url": "https://picasaapp-169908.firebaseio.com",
+    "project_id": "picasaapp-169908",
+    "storage_bucket": "picasaapp-169908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125267211347:android:5e7eb4a1f398d0a4",
+        "android_client_info": {
+          "package_name": "com.PicasaApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125267211347-akmkjosfjfrskuoej7fe5866kubhpj5j.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "125267211347-0v165q7j9re2fv0ggjduv523b9h8d8bb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3RhheY_17OH7WFYTRjjIUJQ6-WMFs_H8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

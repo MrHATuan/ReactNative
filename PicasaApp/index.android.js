@@ -6,7 +6,6 @@
 
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-
 import { Provider } from 'react-redux';
 import configureStore from './src/store/configureStore';
 
@@ -15,9 +14,13 @@ import App from './src/App';
 const store = configureStore();
 
 export default class PicasaApp extends Component {
+    constructor(props) {
+        super(props)
+      }
+
     render() {
         return (
-            <Provider>
+            <Provider store={store}>
                 <App />
             </Provider>
         );
