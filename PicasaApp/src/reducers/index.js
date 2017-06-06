@@ -4,6 +4,6 @@ import loginReducer from './login';
 import picasaReducer from './picasa'; 
 
 export default combineReducers ({
-    loginReducer,
-    picasaReducer
+    login: loginReducer,
+    picasa: picasaReducer
 });

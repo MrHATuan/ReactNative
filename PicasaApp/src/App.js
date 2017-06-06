@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { bindActionCreators } from 'redux';
+import * as actions from './actions/index';
 import { ScrollView, Text, View, Button, TouchableOpacity } from 'react-native';
 // import configureStore from './store/configureStore';
 
@@ -32,7 +33,7 @@ export default class App extends Component {
         //         </View>
         //     </ScrollView>
         // );
-        if (this.props.currentUser.isLoggedIn && this.props.currentUser.user) {
+        if (this.props.login.isLoggedIn && this.props.login.user) {
             return (
                 <Picasa />
             );
@@ -50,9 +51,20 @@ export default class App extends Component {
 //     };
 // }
 
+// export default connect(mapStateToProps, actions)(App)
 // export default connect(mapStateToProps)(App)
 
-export default connect(state => ({
-    currentUser: state.loginReducer
-  })
+export default connect(
+    (state) => (
+        {
+            state: {
+                login: state.login
+            }
+        }
+    ),
+    (dispatch) => (
+        {
+            actions: bindActionCreators(actions, dispatch)
+        }
+    )
 )(App);
