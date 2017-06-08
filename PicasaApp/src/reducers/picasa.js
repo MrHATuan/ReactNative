@@ -40,3 +40,4 @@ export default function gallery(state = initialState, action) {
             return state;
     }
 };
+

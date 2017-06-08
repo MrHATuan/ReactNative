@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8e31a4-c133-40e6-a479-ef2fc92e0c38" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PicasaApp/src/reducers/navReducer.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/android/app/build.gradle" afterPath="$PROJECT_DIR$/PicasaApp/android/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/android/build.gradle" afterPath="$PROJECT_DIR$/PicasaApp/android/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/index.android.js" afterPath="$PROJECT_DIR$/PicasaApp/index.android.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/index.ios.js" afterPath="$PROJECT_DIR$/PicasaApp/index.ios.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/android/app/google-services.json" afterPath="$PROJECT_DIR$/PicasaApp/android/app/google-services.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/android/app/src/dogfood/paid/google-services.json" afterPath="$PROJECT_DIR$/PicasaApp/android/app/src/dogfood/paid/google-services.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/android/app/src/release/free/google-services.json" afterPath="$PROJECT_DIR$/PicasaApp/android/app/src/release/free/google-services.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/package.json" afterPath="$PROJECT_DIR$/PicasaApp/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/App.js" afterPath="$PROJECT_DIR$/PicasaApp/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/actions/index.js" afterPath="$PROJECT_DIR$/PicasaApp/src/actions/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/components/login/Login.js" afterPath="$PROJECT_DIR$/PicasaApp/src/components/login/Login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/components/pages/Picasa.js" afterPath="$PROJECT_DIR$/PicasaApp/src/components/pages/Picasa.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/reducers/index.js" afterPath="$PROJECT_DIR$/PicasaApp/src/reducers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/store/configureStore.js" afterPath="$PROJECT_DIR$/PicasaApp/src/store/configureStore.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicasaApp/src/reducers/picasa.js" afterPath="$PROJECT_DIR$/PicasaApp/src/reducers/picasa.js" />
     </list>
     <ignored path="React.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +43,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="350" />
-    <option name="y" value="46" />
+    <option name="x" value="238" />
+    <option name="y" value="51" />
     <option name="width" value="1222" />
     <option name="height" value="755" />
   </component>
@@ -72,9 +73,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -89,7 +91,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -175,6 +176,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2b8e31a4-c133-40e6-a479-ef2fc92e0c38" name="Default" comment="" />
@@ -186,7 +190,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="350" y="46" width="1222" height="755" extended-state="0" />
+    <frame x="238" y="51" width="1222" height="755" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -201,7 +205,6 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29259896" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37951806" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -210,10 +213,11 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">

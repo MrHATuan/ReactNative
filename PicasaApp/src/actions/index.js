@@ -12,7 +12,6 @@ export function logout() {
     return { type: actionTypes.GOOGLE_LOGOUT };
 }
 
-
 //App related
 export function isFetching() {
     return { type: actionTypes.IS_FETCHING };
@@ -33,7 +32,6 @@ export function closePhoto(photo) {
 export function setScrollOffsetY(offset) {
     return { type: actionTypes.SET_SCROLL_OFFSET_Y, offset };
 }
-
 
 //Photo related
 export function addAlbum(album) {

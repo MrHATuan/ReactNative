@@ -1,50 +1,63 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-// import { connect } from 'react-redux';
-// import { login } from '../../actions/index';
-// import { getLogin } from '../../reducers/index';
+import { connect } from 'react-redux';
+import { login } from '../../actions/index';
+
+import { StackNavigator} from 'react-navigation';
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 
-export default class Login extends Component {
+import Picasa from '../pages/Picasa';
+
+const ModalStack = StackNavigator({
+  PicasaScreen: {
+    screen: Picasa,
+    navigationOptions: {
+      title: 'Trang chủ',
+    },
+  },
+
+});
+
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: null
     };
+    this._onSignInSuccess = this._onSignInSuccess.bind(this);
   }
 
   componentDidMount() {
     this._setupGoogleSignin();
   }
 
-
   render() {
-    if (!this.state.user) {
+    // if (!this.state.user) {
       return (
         <View style={styles.container}>
           <GoogleSigninButton style={{width: 120, height: 44}} 
               color={GoogleSigninButton.Color.Light}
               size={GoogleSigninButton.Size.Icon}
-              onPress={() => { this._signIn(); }}/>
+              onPress={() => { this._signIn().bind(this); }}/>
         </View>
       );
-    }
+    // }
 
-    if (this.state.user) {
-      return (
-        <View style={styles.container}>
-          <Text style={{fontSize: 18, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.state.user.name}</Text>
-          <Text>Your email is: {this.state.user.email}</Text>
+    // if (this.state.user) {
+    //   return (
+    //     <View style={styles.container}>
+    //       <Text style={{fontSize: 18, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.state.user.name}</Text>
+    //       <Text>Your email is: {this.state.user.email}</Text>
 
-          <TouchableOpacity onPress={() => {this._signOut(); }}>
-            <View style={{marginTop: 50}}>
-              <Text>Log out</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-      );
-    }
+    //       <TouchableOpacity onPress={() => {this._signOut() }}>
+    //         <View style={{marginTop: 50}}>
+    //           <Text>Log out</Text>
+    //         </View>
+    //       </TouchableOpacity>
+    //     </View>
+    //   );
+    // }
   }
 
   async _setupGoogleSignin() {
@@ -57,7 +70,6 @@ export default class Login extends Component {
 
       const user = await GoogleSignin.currentUserAsync();
       console.log(user);
-      console.log(123);
       this.setState({user});
     }
     catch(error) {
@@ -69,14 +81,28 @@ export default class Login extends Component {
     GoogleSignin.signIn()
     .then((user) => {
       console.log(user);
-      console.log(456);
       this.setState({user: user});
-      // this.props.login(this.state.user);
     })
+    .then(() => {this._onSignInSuccess();})
     .catch((error) => {
       console.log('WRONG SIGNIN', error);
     })
     .done();
+  }
+
+  // _signOut() {
+  //       GoogleSignin.revokeAccess().then(() => GoogleSignin.signOut()).then(() => {
+  //           this.setState({user: null});
+  //           // this.props.onLogout();
+  //       })
+  //       .done();
+  //   }
+
+  _onSignInSuccess() {
+    console.log("Day la user:", this.state.user);
+    const user = this.state.user;
+    this.props.login(user);
+    this.props.navigation.navigate('PicasaScreen');
   }
 
 }
@@ -90,17 +116,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// const mapStateToProps = (state) => {
-//     return {
-//         isLoggedIn: state.login.isLoggedIn,
-//         user: state.login.user
-//     };
-// }
- 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         onLogin: (user) => { dispatch(login(user)); },
-//     }
-// }
- 
-// export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null,{login})(Login);

@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:125267211347:android:5e7eb4a1f398d0a4",
+        "mobilesdk_app_id": "1:125267211347:android:f600554afa500222",
         "android_client_info": {
-          "package_name": "com.PicasaApp"
+          "package_name": "com.picasaapp"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "125267211347-f06mnei5e4r9ak2q5fpp4q11cthkenl3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.picasaapp",
+            "certificate_hash": "7743d2822940b14a3f4238c75b5804a53ec46e10"
+          }
+        },
         {
           "client_id": "125267211347-akmkjosfjfrskuoej7fe5866kubhpj5j.apps.googleusercontent.com",
           "client_type": 3
@@ -33,8 +41,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125267211347-akmkjosfjfrskuoej7fe5866kubhpj5j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
