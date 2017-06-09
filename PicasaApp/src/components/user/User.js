@@ -1,4 +1,4 @@
-// Album detail
+// User Detail
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -7,7 +7,7 @@ import { logout } from '../../actions/index';
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 
-class Detail extends Component {
+class User extends Component {
     constructor(props) {
         super(props);
         this._onLogOut = this._onLogOut.bind(this);
@@ -17,7 +17,7 @@ class Detail extends Component {
         return (
             <ScrollView style={{padding: 20}}>
                 <Text style={{fontSize: 27}}>
-                    Welcome Show All Photo Of Album
+                    Welcome User Detail
                 </Text>
                 <Text style={{fontSize: 25, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.props.login.user.name}</Text>
                 <Text>Your email is: {this.props.login.user.email}</Text>
@@ -47,4 +47,4 @@ export default connect(
         login: state.loginReducer,
     }),
     {logout}
-)(Detail);
+)(User);
