@@ -61,6 +61,11 @@ var styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: '#ccc',
     },
+    prizeNumber: {
+        fontSize: 15,
+        fontWeight: '400',
+        color: '#000',
+    },
     flexRows: {
         flexDirection: 'row',
     },
@@ -87,11 +92,6 @@ var styles = StyleSheet.create({
     },
     flex12: {
         flex: 12,
-    },
-    prizeNumber: {
-        fontSize: 15,
-        fontWeight: '400',
-        color: '#000',
     },
     colorRed: {
         color: '#ff0000',

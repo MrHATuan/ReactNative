@@ -19,8 +19,8 @@ class Album extends Component {
                 <Text style={{fontSize: 27}}>
                     Welcome Show All Album
                 </Text>
-                <Text style={{fontSize: 25, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.props.login.user.name}</Text>
-                <Text>Your email is: {this.props.login.user.email}</Text>
+                {/*<Text style={{fontSize: 25, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.props.login.user.name}</Text>
+                <Text>Your email is: {this.props.login.user.email}</Text>*/}
 
                 <View style={{margin: 20}}>
                     {<Button onPress={(e) => this.props.navigation.navigate('DetailAlbum')} title="Go to List Image"/>}

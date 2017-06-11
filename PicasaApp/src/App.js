@@ -12,18 +12,18 @@ class App extends Component {
     }
 
     render () {
-        console.log("abc: ", this.props.login);
-        if (this.props.login.isLoggedIn && this.props.login.user) {
+        // console.log("abc: ", this.props.login);
+        // if (this.props.login.isLoggedIn && this.props.login.user) {
             console.log("Go to Picasa");
             return (
                 <AppTabNav />
             );
-        } else {
-            console.log("Go to Login");
-            return (
-                <AppBeforeLogin />
-            );
-        }
+        // } else {
+        //     console.log("Go to Login");
+        //     return (
+        //         <AppBeforeLogin />
+        //     );
+        // }
     }
 }
 

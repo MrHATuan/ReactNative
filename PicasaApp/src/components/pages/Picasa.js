@@ -24,14 +24,14 @@ class Picasa extends Component {
     }
 
     render() {
-        console.log("day la: ", this.props.login.user);
+        // console.log("day la: ", this.props.login.user);
         return (
             <ScrollView style={{padding: 20}}>
                 <Text style={{fontSize: 27}}>
                     Welcome hello
                 </Text>
-                <Text style={{fontSize: 25, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.props.login.user.name}</Text>
-                <Text>Your email is: {this.props.login.user.email}</Text>
+                {/*<Text style={{fontSize: 25, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.props.login.user.name}</Text>
+                <Text>Your email is: {this.props.login.user.email}</Text>*/}
 
                 <View style={{margin: 20}}>
                     {<Button onPress={(e) => this._signOut()} title="Logout"/>}
