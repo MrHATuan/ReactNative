@@ -78,9 +78,9 @@ export default class ViewImage extends Component {
           height: Dimensions.get('window').height - 64,
           width: Dimensions.get('window').width,
           alignItems: 'center',
-          backgroundColor: 'black',
+          backgroundColor: 'rgba(255, 255, 255, 0.4)',
           zIndex: 3,
-          top: 64,
+          top: 0,
           left: 0,
         }}>
           {this.renderCross()}

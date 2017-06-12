@@ -24,14 +24,13 @@ export default class LoadingImage extends Component {
 
   render() {
     return (
-        <Animated.View
-          style={this.props.imageContainerStyle}
-        >
-          <Animated.Image
-            source={{uri: this.props.url}}
-            style={[{opacity: this.state.opacity}, this.props.style]}
+        <View style={this.props.imageContainerStyle} >
+          <Image 
+            source={this.props.url}
+            style={this.props.style}
             onLoad={this.onLoad.bind(this)}
           />
-        </Animated.View>
+        </View>
     );
   }
+}

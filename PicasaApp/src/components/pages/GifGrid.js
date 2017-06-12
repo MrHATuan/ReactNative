@@ -19,50 +19,50 @@ export default class GifGrid extends Component {
     };
   }
   
-  async onScroll(e) {
-    var windowHeight = Dimensions.get('window').height,
-      height = e.nativeEvent.contentSize.height,
-      offset = e.nativeEvent.contentOffset.y;
-    // if scroll is at the bottom of the page
-    if(windowHeight + offset >= height + 50 && this.state.isLoading === false && !this.state.noMorePhotos){
-      this.setState({
-        isLoading: true,
-      })
-      if (await this.props.onScrollReachedEnd() === 0)
-        this.setState({
-          noMorePhotos: true,
-        })
-      this.setState({
-        isLoading: false,
-      })
-    }
-  }
+  // async onScroll(e) {
+  //   var windowHeight = Dimensions.get('window').height,
+  //     height = e.nativeEvent.contentSize.height,
+  //     offset = e.nativeEvent.contentOffset.y;
+  //   // if scroll is at the bottom of the page
+  //   if(windowHeight + offset >= height + 50 && this.state.isLoading === false && !this.state.noMorePhotos){
+  //     this.setState({
+  //       isLoading: true,
+  //     })
+  //     if (await this.props.onScrollReachedEnd() === 0)
+  //       this.setState({
+  //         noMorePhotos: true,
+  //       })
+  //     this.setState({
+  //       isLoading: false,
+  //     })
+  //   }
+  // }
 
   render() {
     return (
       <View style={styles.container}>
         <ScrollView
           style={styles.scroll}
-          onScroll={(e) => this.onScroll(e)}
+          // onScroll={(e) => this.onScroll(e)}
           >
           <View style={styles.gridContainer}>
-            {this.props.images.map((elem) => {
+            {this.props.images.map((image) => {
               return (
                 <TouchableOpacity
-                  key={'touchable' + elem.id}
-                  onPress={() => this.props.onPress(`https://farm${elem.farm}.staticflickr.com/${elem.server}/${elem.id}_${elem.secret}_c.jpg`)}
+                  key={'touchable' + image.id}
+                  onPress={() => this.props.onPress(image.url)}
                 >
                   <LoadingImage
-                    key={elem.id}
+                    key={image.id}
                     imageContainerStyle={styles.imageContainer}
-                    url={`https://farm${elem.farm}.staticflickr.com/${elem.server}/${elem.id}_${elem.secret}_s.jpg`}
+                    url={image.url}
                     style={{ height: 100, width: 100 }}
                   />
                 </TouchableOpacity>
               );
             })}
           </View>
-          <ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />
+          {/*<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />*/}
         </ScrollView>
       </View>
     );
@@ -72,13 +72,10 @@ export default class GifGrid extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 30,
+    alignItems: 'center',
   },
-  imageContainer: {
-    margin: 5,
-    borderWidth: 7,
-    backgroundColor: 'white',
-    borderColor: 'white',
+  scroll: {
+    flex: 1,
   },
   gridContainer: {
     flex: 1,
@@ -86,7 +83,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  scroll: {
-    flex: 1,
+  imageContainer: {
+    margin: 5,
+    borderWidth: 7,
+    // backgroundColor: 'white',
+    borderColor: 'white',
   },
 });

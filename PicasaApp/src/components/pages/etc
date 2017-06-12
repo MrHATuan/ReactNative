@@ -1,0 +1,44 @@
+render() {
+    return (
+      <View style={styles.container}>
+        <ScrollView
+          style={styles.scroll}
+          // onScroll={(e) => this.onScroll(e)}
+          >
+          <View style={styles.gridContainer}>
+            {this.props.images.map((image) => {
+              return (
+                <TouchableOpacity
+                  key={'touchable' + image.id}
+                  onPress={() => this.props.onPress(image.url)}
+                >
+                  <LoadingImage
+                    key={image.id}
+                    imageContainerStyle={styles.imageContainer}
+                    url={image.url}
+                    style={{ height: 100, width: 100 }}
+                  />
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+          <ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />
+        </ScrollView>
+      </View>
+    );
+  }
+
+
+  /// LoaddingImage
+  <Animated.View style={this.props.imageContainerStyle} >
+          {/*<Animated.Image
+            source={{uri: this.props.url}}
+            style={[{opacity: this.state.opacity}, this.props.style]}
+            onLoad={this.onLoad.bind(this)}
+          />*/}
+          <Image 
+            source={{uri: this.props.url}}
+            style={this.props.style}
+            onLoad={this.onLoad.bind(this)}
+          />
+        </Animated.View>

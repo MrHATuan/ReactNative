@@ -46,13 +46,6 @@
             {
               "client_id": "125267211347-akmkjosfjfrskuoej7fe5866kubhpj5j.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "125267211347-rgk23m97vdc4i2i9co5pk3604cs4ic3s.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.picasaapp"
-              }
             }
           ]
         },
