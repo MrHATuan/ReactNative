@@ -15,9 +15,9 @@ class Login extends Component {
     this._onSignInSuccess = this._onSignInSuccess.bind(this);
   }
 
-  componentDidMount() {
-    this._setupGoogleSignin();
-  }
+  // componentDidMount() {
+  //   this._setupGoogleSignin();
+  // }
 
   render() {
     return (
@@ -30,43 +30,36 @@ class Login extends Component {
     );
   }
 
-  async _setupGoogleSignin() {
-    try {
-      await GoogleSignin.hasPlayServices({ autoResolve: true });
-      await GoogleSignin.configure({
-        iosClientId: '125267211347-rgk23m97vdc4i2i9co5pk3604cs4ic3s.apps.googleusercontent.com',
-        webClientId: '125267211347-0v165q7j9re2fv0ggjduv523b9h8d8bb.apps.googleusercontent.com',
-        offlineAccess: true
-      });
+  // async _setupGoogleSignin() {
+  //   try {
+  //     await GoogleSignin.hasPlayServices({ autoResolve: true });
+  //     await GoogleSignin.configure({
+  //       iosClientId: '125267211347-rgk23m97vdc4i2i9co5pk3604cs4ic3s.apps.googleusercontent.com',
+  //       webClientId: '125267211347-0v165q7j9re2fv0ggjduv523b9h8d8bb.apps.googleusercontent.com',
+  //       offlineAccess: true
+  //     });
 
-      const user = await GoogleSignin.currentUserAsync();
-      console.log(user);
-      this.setState({user});
-    }
-    catch(error) {
-      console.warn("Play services error", error.code, error.message);
-    }
-  }
+  //     const user = await GoogleSignin.currentUserAsync();
+  //     console.log(user);
+  //     this.setState({user});
+  //   }
+  //   catch(error) {
+  //     console.warn("Play services error", error.code, error.message);
+  //   }
+  // }
 
   _signIn() {
     GoogleSignin.signIn()
     .then((user) => {
-      console.log(user);
+      // console.log(user);
       this.setState({user: user});
     })
     .then(() => {this._onSignInSuccess();})
     .catch((error) => {
-      console.log('WRONG SIGNIN', error);
+      console.warn('WRONG SIGNIN', error);
     })
     .done();
   }
-
-  _signOut() {
-        GoogleSignin.revokeAccess().then(() => GoogleSignin.signOut()).then(() => {
-            this.setState({user: null});
-        })
-        .done();
-    }
 
   _onSignInSuccess() {
     console.log("Login success! Day la user:", this.state.user);

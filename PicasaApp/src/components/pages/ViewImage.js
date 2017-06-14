@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {
-  View,
-  Text,
-  Image,
+  StyleSheet, View, Text, Image,
   ScrollView,
   Dimensions,
   Animated,
-  StyleSheet,
   TouchableOpacity,
+  Modal, TouchableHighlight,
 } from 'react-native';
 
 import LoadingImage from './LoadingImage';
@@ -15,11 +13,10 @@ import LoadingImage from './LoadingImage';
 export default class ViewImage extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      opacity: new Animated.Value(0),
-      didFinishAnimation: false,
+      modalVisible: false,
     };
+    this.calculateThumbSize = this.calculateThumbSize.bind(this);
   }
 
   componentDidMount() {
@@ -27,65 +24,73 @@ export default class ViewImage extends Component {
   }
 
   makeItBig() {
-    Animated.spring(this.state.opacity,
-      {
-        toValue: 1,
-        delay: 500,
-      }
-    ).start();
-      this.setState({
-        didFinishAnimation: true,
-      });
+    this.setState({ modalVisible: true });
   }
 
   dismiss() {
-    this.setState({
-      opacity: new Animated.Value(0),
-      didFinishAnimation: false,
-    });
+    this.setState({ modalVisible: !this.state.modalVisible, });
     this.props.onPress('');
   }
 
-  renderContent() {
-    if (this.state.didFinishAnimation)
-      return (
-        <View style={{ width: 350, height: 400 }}>
-          <ScrollView maximumZoomScale={5} minimumZoomScale={1}>
-            <LoadingImage
-              imageContainerStyle={{ height: 350 }}
-              url={this.props.url}
-              style={{ height: 350, width: 350, resizeMode: 'contain' }}
-            />
-          </ScrollView>
-        </View>
-      );
-  }
-
-  renderCross() {
-    if (this.state.didFinishAnimation)
-      return (
-        <TouchableOpacity onPress={this.dismiss.bind(this)}>
-            <Text style={{ color: 'white', fontSize: 40 }}> ✕ </Text>
-        </TouchableOpacity>
-      );
+  calculateThumbSize() {
+    if (Dimensions.get('window').width > Dimensions.get('window').height) {
+      //Landscape
+      return {
+        height: Dimensions.get('window').height - 100,
+        width: Dimensions.get('window').height
+      }
+    } else {
+      //Portrait
+      return {
+        width: Dimensions.get('window').width - 30,
+        height: Dimensions.get('window').width
+      }
+    }
   }
 
   render() {
     return (
-        <Animated.View style={{
-          opacity: this.state.opacity,
-          position: 'absolute',
-          height: Dimensions.get('window').height - 64,
-          width: Dimensions.get('window').width,
-          alignItems: 'center',
-          backgroundColor: 'rgba(255, 255, 255, 0.4)',
-          zIndex: 3,
-          top: 0,
-          left: 0,
-        }}>
-          {this.renderCross()}
-          {this.renderContent()}
-        </Animated.View>
+      <Modal animationType={"fade"} transparent = {true} visible={this.state.modalVisible}
+        onRequestClose={() => {alert("Modal has been closed.")}} >
+        <View style={styles.modalView}>
+          <TouchableHighlight onPress={this.dismiss.bind(this)}>
+            <Text style={styles.closeBtn}> ✕ </Text>
+          </TouchableHighlight>
+
+          <View style={styles.container}>
+            <ScrollView maximumZoomScale={5} minimumZoomScale={1}>
+              <LoadingImage
+                imageContainerStyle={styles.imageContainer}
+                url={this.props.url}
+                style={[{resizeMode: 'contain'}, this.calculateThumbSize()]}
+              />
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  modalView: {
+    flex: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  imageContainer: {
+    flex: 1,
+    marginTop: 15,
+    marginLeft:10,
+    marginRight:10,
+    marginBottom: 10,
+  },
+  closeBtn: {
+    color: '#808080',
+    fontSize: 30,
+  },
+});

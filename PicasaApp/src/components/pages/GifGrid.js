@@ -18,6 +18,22 @@ export default class GifGrid extends Component {
       noMorePhotos: false,
     };
   }
+
+  calculateThumbSize() {
+    if (Dimensions.get('window').width > Dimensions.get('window').height) {
+      //Landscape
+      return {
+        width: (Dimensions.get('window').width - 40)/4,
+        height: (Dimensions.get('window').width - 40)/4
+      }
+    } else {
+      //Portrait
+      return {
+        width: (Dimensions.get('window').width - 30)/3,
+        height: (Dimensions.get('window').width - 30)/3
+      }
+    }
+  }
   
   // async onScroll(e) {
   //   var windowHeight = Dimensions.get('window').height,
@@ -41,10 +57,9 @@ export default class GifGrid extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
-          style={styles.scroll}
+        <ScrollView style={styles.scroll}
           // onScroll={(e) => this.onScroll(e)}
-          >
+        >
           <View style={styles.gridContainer}>
             {this.props.images.map((image) => {
               return (
@@ -56,13 +71,13 @@ export default class GifGrid extends Component {
                     key={image.id}
                     imageContainerStyle={styles.imageContainer}
                     url={image.url}
-                    style={{ height: 100, width: 100 }}
+                    style={ this.calculateThumbSize() }
                   />
                 </TouchableOpacity>
               );
             })}
           </View>
-          {/*<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />*/}
+          {<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />}
         </ScrollView>
       </View>
     );
@@ -85,8 +100,8 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     margin: 5,
-    borderWidth: 7,
+    // borderWidth: 7,
     // backgroundColor: 'white',
-    borderColor: 'white',
+    // borderColor: 'white',
   },
 });

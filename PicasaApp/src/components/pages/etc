@@ -1,3 +1,25 @@
+//View Image
+
+<Animated.View style={[{opacity: this.state.opacity}, styles.animateView]}>
+        {this.renderClose()}
+        {this.renderContent()}
+      </Animated.View>
+
+      //style
+      animateView: {
+    position: 'absolute',
+    height: Dimensions.get('window').height - 64,
+    width: Dimensions.get('window').width,
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    zIndex: 3,
+    top: 0,
+    left: 0,
+  },
+
+
+      
+//GifGid
 render() {
     return (
       <View style={styles.container}>
@@ -42,3 +64,12 @@ render() {
             onLoad={this.onLoad.bind(this)}
           />
         </Animated.View>
+
+
+//Album
+        GET https://picasaweb.google.com/data/feed/api/user/userID
+
+//Photo
+        GET https://picasaweb.google.com/data/feed/api/user/userID/albumid/albumID
+
+        GET https://picasaweb.google.com/data/feed/api/user/userID/albumid/albumID

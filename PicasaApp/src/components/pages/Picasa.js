@@ -8,6 +8,8 @@ import { logout } from '../../actions/index';
 import GifGrid from './GifGrid';
 import ViewImage from './ViewImage';
 
+import Api from '../../services/Api';
+
 class Picasa extends Component {
     constructor(props) {
         super(props);
@@ -18,6 +20,7 @@ class Picasa extends Component {
             // page: 1,
             showFullScreen: false,
         };
+        this.displayFullScreen = this.displayFullScreen.bind(this);
     }
 
     async getImages() {
@@ -48,6 +51,7 @@ class Picasa extends Component {
 
     componentDidMount() {
         this.getImages();
+        Api.getAllAlbum('FETCHING_ALBUM', this.props.login.user.id, this.props.login.user.accessToken, this.props.login.user.serverAuthCode);
     }
 
     toggleFullScreen(url) {
@@ -72,11 +76,7 @@ class Picasa extends Component {
         return (
             <View style={styles.container}>
                 {this.displayFullScreen()}
-                <ActivityIndicator
-                    animating={this.state.isLoading}
-                    color="#fff"
-                    size="large"
-                />
+                {<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />}
                 <GifGrid
                     images={this.state.images}
                     onPress={this.toggleFullScreen.bind(this)}
@@ -95,14 +95,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Picasa;
+// export default Picasa;
 
-// export default connect(
-//     (state) => ({
-//         login: state.loginReducer,
-//     }),
-//     {logout}
-// )(Picasa);
+export default connect(
+    (state) => ({
+        login: state.loginReducer,
+    }),
+)(Picasa);
 
 // export default connect(null, {logout})(Picasa);
 
