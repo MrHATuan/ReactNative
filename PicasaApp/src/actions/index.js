@@ -13,8 +13,12 @@ export function logout() {
 }
 
 //App related
-export function isFetching() {
-    return { type: actionTypes.IS_FETCHING };
+export function fetchingPhoto(images) {
+    return { type: actionTypes.FETCHING_PHOTO, images };
+}
+
+export function fetchingAlbum(albums) {
+    return { type: actionTypes.FETCHING_ALBUM, albums };
 }
 
 export function doneFetching() {

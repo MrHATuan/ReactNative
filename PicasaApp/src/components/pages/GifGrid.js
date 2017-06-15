@@ -17,6 +17,7 @@ export default class GifGrid extends Component {
       isLoading: false,
       noMorePhotos: false,
     };
+    this.calculateThumbSize = this.calculateThumbSize.bind(this);
   }
 
   calculateThumbSize() {
@@ -62,15 +63,16 @@ export default class GifGrid extends Component {
         >
           <View style={styles.gridContainer}>
             {this.props.images.map((image) => {
+              console.log(image);
               return (
                 <TouchableOpacity
                   key={'touchable' + image.id}
-                  onPress={() => this.props.onPress(image.url)}
+                  onPress={() => this.props.onPress(image.link)}
                 >
                   <LoadingImage
                     key={image.id}
                     imageContainerStyle={styles.imageContainer}
-                    url={image.url}
+                    url={image.thumbnail[2]['$']['url']}
                     style={ this.calculateThumbSize() }
                   />
                 </TouchableOpacity>

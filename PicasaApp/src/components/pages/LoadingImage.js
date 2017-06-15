@@ -26,7 +26,7 @@ export default class LoadingImage extends Component {
     return (
         <Animated.View style={this.props.imageContainerStyle} >
           <Animated.Image
-            source={this.props.url}
+            source={{uri: this.props.url}}
             style={[{opacity: this.state.opacity}, this.props.style]}
             onLoad={this.onLoad.bind(this)}
           />

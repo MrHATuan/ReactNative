@@ -19,14 +19,14 @@ class App extends Component {
     }
 
     render () {
-        console.log("abc: ", this.props.login);
+        // console.log("abc: ", this.props.login);
         if (this.props.login.isLoggedIn && this.props.login.user) {
-            console.log("Go to Picasa");
+            // console.log("Go to Picasa");
             return (
                 <AppTabNav />
             );
         } else {
-            console.log("Go to Login");
+            // console.log("Go to Login");
             return (
                 <AppBeforeLogin />
             );
@@ -37,13 +37,15 @@ class App extends Component {
         try {
             await GoogleSignin.hasPlayServices({ autoResolve: true });
             await GoogleSignin.configure({
+                scopes: ['http://picasaweb.google.com/data/'],
                 iosClientId: '125267211347-rgk23m97vdc4i2i9co5pk3604cs4ic3s.apps.googleusercontent.com',
                 webClientId: '125267211347-0v165q7j9re2fv0ggjduv523b9h8d8bb.apps.googleusercontent.com',
-                offlineAccess: true
+                service: 'lh2',
+                offlineAccess: true,
             });
 
             const user = await GoogleSignin.currentUserAsync();
-            console.log(user);
+            // console.log(user);
 
             if(user != null) {
                 this.props.actions.login(user);

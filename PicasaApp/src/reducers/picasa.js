@@ -2,24 +2,29 @@ import * as actionTypes from '../constants/actionTypes';
 
 const initialState = {
     title: 'snaps',
-    hasLoaded: false,
-    isFetching: false,
+    hasLoadedPhoto: false,
+    hasLoadedAlbum: false,
+    fetchingPhoto: false,
+    fetchingAlbum: false,
     viewPhoto: undefined,
-    scrollOffsetY: 0
+    scrollOffsetY: 0,
+    images: [],
+    albums: [],
 };
 
 export default function gallery(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.IS_FETCHING:
+        case actionTypes.FETCHING_PHOTO:
             return {
                 ...state,
-                isFetching: true
+                fetchingPhoto: true,
+                images: action.images
             };
-        case actionTypes.DONE_FETCHING:
+        case actionTypes.FETCHING_ALBUM:
             return {
                 ...state,
-                isFetching: false,
-                hasLoaded: true
+                fetchingAlbum: true,
+                albums: action.albums
             };
         case actionTypes.VIEW_PHOTO:
             return {

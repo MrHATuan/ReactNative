@@ -4,24 +4,29 @@ var styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    welcomeUser: {
+    scroll: {
+        flex: 1,
+    },
+    avatarUser: {
         flex: 1,
         paddingTop: 30,
         paddingBottom: 30,
         alignItems: 'center',
     },
-    welcomeTitle: {
-        fontSize: 20,
+    avatarImg: {
+        width: 120,
+        height: 120,
+        borderRadius: 60,
     },
 
     viewUserDetail: {
-        flex: 4,
-        width: '100%',
+        flex: 1,
         alignItems: 'center',
     },
     viewUser: {
         flex: 1,
         flexDirection: 'row',
+        marginBottom: 30,
     },
     userTitle: {
         flex: 1,
@@ -61,7 +66,7 @@ var styles = StyleSheet.create({
     },
 
     buttonLogOut: {
-        flex: 6,
+        flex: 2,
         marginTop: 20,
         marginLeft: 70,
         marginRight: 70,
