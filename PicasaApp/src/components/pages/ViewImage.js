@@ -36,14 +36,14 @@ export default class ViewImage extends Component {
     if (Dimensions.get('window').width > Dimensions.get('window').height) {
       //Landscape
       return {
-        height: Dimensions.get('window').height - 100,
-        width: Dimensions.get('window').height
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').height,
       }
     } else {
       //Portrait
       return {
-        width: Dimensions.get('window').width - 30,
-        height: Dimensions.get('window').width
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').width,
       }
     }
   }
@@ -53,9 +53,11 @@ export default class ViewImage extends Component {
       <Modal animationType={"fade"} transparent = {true} visible={this.state.modalVisible}
         onRequestClose={() => {alert("Modal has been closed.")}} >
         <View style={styles.modalView}>
-          <TouchableHighlight onPress={this.dismiss.bind(this)}>
-            <Text style={styles.closeBtn}> ✕ </Text>
-          </TouchableHighlight>
+          <View style={styles.viewClose}>
+            <TouchableHighlight onPress={this.dismiss.bind(this)}>
+              <Text style={styles.closeBtn}> ✕ </Text>
+            </TouchableHighlight>
+          </View>
 
           <View style={styles.container}>
             <ScrollView maximumZoomScale={5} minimumZoomScale={1}>
@@ -75,7 +77,7 @@ export default class ViewImage extends Component {
 const styles = StyleSheet.create({
   modalView: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: '#000',
     alignItems: 'center',
   },
   container: {
@@ -88,6 +90,12 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginRight:10,
     marginBottom: 10,
+  },
+  viewClose: {
+    position: 'absolute',
+    zIndex: 3,
+    top: 15,
+    left: 15,
   },
   closeBtn: {
     color: '#808080',

@@ -25,32 +25,6 @@ class Picasa extends Component {
     }
 
     getImages() {
-        // var list_url = [
-        //     {"id": 1, "url": require('../../assets/images/anh1.jpg')},
-        //     {"id": 2, "url": require('../../assets/images/anh2.jpg')},
-        //     {"id": 3, "url": require('../../assets/images/anh1.jpg')},
-        //     {"id": 4, "url": require('../../assets/images/anh1.jpg')},
-        //     {"id": 5, "url": require('../../assets/images/anh2.jpg')},
-        //     {"id": 6, "url": require('../../assets/images/anh1.jpg')},
-        //     {"id": 7, "url": require('../../assets/images/anh2.jpg')},
-        //     {"id": 8, "url": require('../../assets/images/anh1.jpg')},
-        //     {"id": 9, "url": require('../../assets/images/anh2.jpg')},
-        //     {"id": 10, "url": require('../../assets/images/anh1.jpg')},
-        //     {"id": 11, "url": require('../../assets/images/anh2.jpg')},
-        //     {"id": 12, "url": require('../../assets/images/anh1.jpg')},
-        //     {"id": 13, "url": require('../../assets/images/anh2.jpg')},
-        //     {"id": 14, "url": require('../../assets/images/anh2.jpg')},
-        //     {"id": 15, "url": require('../../assets/images/anh1.jpg')}
-        // ];
-        // var list_image = Api.getAllPhoto('FETCHING_PHOTO', this.props.login.user.id, this.props.login.user.accessToken);
-
-        // this.setState({
-        //     // images: list_url,
-        //     // images: await Api.getAllPhoto('FETCHING_PHOTO', this.props.login.user.id, this.props.login.user.accessToken),
-        //     // images: list_image,
-        //     // selectedImage: '',
-        //     // isLoading: false,
-        // })
         this.setState({
             images: this.props.gallery.images,
             selectedImage: '',
@@ -58,16 +32,7 @@ class Picasa extends Component {
         });
     }
 
-    // componentWillMount() {
-    //     // Api.getAllPhoto('FETCHING_PHOTO', this.props.login.user.id, this.props.login.user.accessToken);
-    //     // Api.getAllAlbum('FETCHING_ALBUM', this.props.login.user.id, this.props.login.user.accessToken);
-    //     this.getImages();
-    // }
-
     componentDidMount() {
-        console.log("aaa");
-        // const { fetchingPhoto } = this.props;
-        // this.getImages();
         Api.getAllPhoto('FETCHING_PHOTO', this.props.login.user.id, this.props.login.user.accessToken)
         .then((images) => {
             this.props.fetchingPhoto(images);
@@ -81,10 +46,10 @@ class Picasa extends Component {
     toggleFullScreen(url) {
         Api.getPhoto(url, this.props.login.user.accessToken)
         .then((photo) => {
-            console.log(photo);
+            console.log(photo[0]['$']['url']);
             this.setState({
                 showFullScreen: !this.state.showFullScreen,
-                selectedImage: photo,
+                selectedImage: photo[0]['$']['url'],
             });
             
         })
@@ -105,8 +70,6 @@ class Picasa extends Component {
     }
 
     render() {
-        // console.log('props: ', this.props);
-        // console.log('images: ', this.state.images);
         return (
             <View style={styles.container}>
                 {this.displayFullScreen()}
@@ -129,8 +92,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#dfdfdf',
   },
 });
-
-// export default Picasa;
 
 export default connect(
     (state) => ({

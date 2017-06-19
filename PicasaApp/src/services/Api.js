@@ -11,6 +11,7 @@ const buildApiURL = (apiType, userId, numresults=10) => {
         case actionTypes.FETCHING_ALBUM:
             url += userId + PICASA.All_ALBUM;
             break;
+            case actionTypes.
         case actionTypes.VIEW_PHOTO:
             break;
         case actionTypes.ADD_ALBUM:
@@ -22,29 +23,47 @@ const buildApiURL = (apiType, userId, numresults=10) => {
     }
 
     return url;
-}
+};
+
+const getApiInfor = (accessToken) => {
+    return info = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/atom+xml',
+            'Authorization': 'Bearer ' + accessToken,
+        },
+    };
+};
+const postApiInfor = (accessToken) => {
+    return info = {
+        method: 'POST',
+
+    };
+};
 
 const Api = {
-    getPhoto: (url, accessToken) => {
-        var photo = null;
+    getAllAlbum: (apiType, userId, accessToken) => {
+        var albums = null;
+
         return new Promise((resolve, reject) => {
-            fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/atom+xml',
-                    'Authorization': 'Bearer ' + accessToken,
-                },
-            })
+            fetch(buildApiURL(apiType, userId), getApiInfor(accessToken))
             .then((response) => response.text())
             .then((responseText) => {
                 var parseString = require('react-native-xml2js').parseString;
 
-                parseString(responseText, function (error, photoInfors) {
-                    var photoEntry = photoInfors.entry;
+                parseString(responseText, function (error, albumInfors) {
+                    albumInfors.feed.entry.forEach(function(albumInfor) {
+                        console.log(albumInfor);
+                        // var id        = photoEntry['gphoto:id'][0];
+                        // var link      = photoEntry['id'][0];
+                        // var title     = photoEntry['title'][0][1];
+                        // var timestamp = photoEntry['gphoto:timestamp'][0];
+                        // var thumbnail = photoEntry['media:group'][0]['media:thumbnail'];
 
-                    photo = photoEntry['media:group'][0]['media:content'];
+                        // images.push({id: id, link: link, title: title, timestamp: timestamp, thumbnail: thumbnail});
+                    });
                 });
-                resolve(photo);
+                resolve(albums);
             })
             .catch((error) => {
                 console.error(error);
@@ -52,18 +71,15 @@ const Api = {
         });
     },
 
+    // Load all photo of album
+
+
     // Load All Photo (max: 100 photos)
     getAllPhoto: (apiType, userId, accessToken) => {
         var images = [];
 
         return new Promise((resolve, reject) => {
-            fetch(buildApiURL(apiType, userId), {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/atom+xml',
-                    'Authorization': 'Bearer ' + accessToken,
-                },
-            })
+            fetch(buildApiURL(apiType, userId), getApiInfor(accessToken))
             .then((response) => response.text())
             .then((responseText) => {
                 var parseString = require('react-native-xml2js').parseString;
@@ -87,27 +103,25 @@ const Api = {
         });
     },
 
-    getAllAlbum: (apiType, userId, accessToken) => {
-        var albums = null;
+    getPhoto: (url, accessToken) => {
+        var photo = null;
+        return new Promise((resolve, reject) => {
+            fetch(url, getApiInfor(accessToken))
+            .then((response) => response.text())
+            .then((responseText) => {
+                var parseString = require('react-native-xml2js').parseString;
 
-        fetch(buildApiURL(apiType, userId), {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/atom+xml',
-                'Authorization': 'Bearer ' + accessToken,
-            },
-        })
-        .then((response) => response.text())
-        .then((responseText) => {
-            console.log(responseText);
-            
-        })
-        .catch((error) => {
-            console.error(error);
-        })
-        .done();
+                parseString(responseText, function (error, photoInfors) {
+                    var photoEntry = photoInfors.entry;
 
-            return albums;
+                    photo = photoEntry['media:group'][0]['media:content'];
+                });
+                resolve(photo);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+        });
     },
 };
 

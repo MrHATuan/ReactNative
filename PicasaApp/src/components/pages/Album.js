@@ -3,47 +3,61 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ScrollView, Text, View, Button, TouchableOpacity } from 'react-native';
-import { logout } from '../../actions/index';
+import { fetchingAlbum } from '../../actions/index';
 
-import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import ListAlbum from './ListAlbum';
+
+import Api from '../../services/Api';
 
 class Album extends Component {
     constructor(props) {
         super(props);
-        this._onLogOut = this._onLogOut.bind(this);
+
+        this.state = {
+            isLoading: true,
+            albums: [],
+        };
+    }
+
+    getAlbums() {
+        this.setState({
+            albums: this.props.gallery.albums,
+            selectedAlbum: '',
+            isLoading: false,
+        });
+    }
+
+    componentDidMount() {
+        Api.getAllAlbum('FETCHING_ALBUM', this.props.login.user.id, this.props.login.user.accessToken)
+        .then((albums) => {
+            this.props.fetchingAlbum(albums);
+        })
+        .then(() => {this.getAlbums()})
+        .catch((error) => {
+            console.warn(error);
+        });
     }
 
     render() {
         return (
-            <ScrollView style={{padding: 20}}>
-                <Text style={{fontSize: 27}}>
-                    Welcome Show All Album
-                </Text>
-                {/*<Text style={{fontSize: 25, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.props.login.user.name}</Text>
-                <Text>Your email is: {this.props.login.user.email}</Text>*/}
-
-                <View style={{margin: 20}}>
-                    {<Button onPress={(e) => this.props.navigation.navigate('DetailAlbum')} title="Go to List Image"/>}
-                </View>
-                <View style={{margin: 50}}>
-                    {<Button onPress={(e) => this._signOut()} title="Logout"/>}
-                </View>
-            </ScrollView>
+            <View style={styles.container}>
+                {<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />}
+                <ListAlbum
+                    albums={this.state.albums}
+                />
+            </View>
         );
     }
-
-    _signOut() {
-        GoogleSignin.revokeAccess().then(() => GoogleSignin.signOut()).then(() => {
-            this.setState({user: null});
-        })
-        .then(() => {this._onLogOut();})
-        .done();
-    }
-
-    _onLogOut() {
-        this.props.logout();
-    }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#dfdfdf',
+  },
+});
 
 export default connect(
     (state) => ({
