@@ -8,6 +8,8 @@ import { fetchingPhoto } from '../../actions/index';
 import GifGrid from './GifGrid';
 import ViewImage from './ViewImage';
 
+import Menu from './Menu';
+
 import Api from '../../services/Api';
 
 class Photo extends Component {
@@ -84,6 +86,7 @@ class Photo extends Component {
                     images={this.state.images}
                     onPress={this.toggleFullScreen.bind(this)}
                 />
+                <Menu />
             </View>
         );
     }

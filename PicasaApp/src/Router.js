@@ -7,6 +7,7 @@ import Photo from './components/pages/Photo';
 import Album from './components/pages/Album';
 import Detail from './components/pages/Detail';
 import User from './components/user/User';
+import Menu from './components/pages/Menu';
 
 export const AppBeforeLogin = StackNavigator({
     LoginScreen: {
@@ -95,3 +96,16 @@ export const AppTabNav = TabNavigator(
         },
     }
 );
+
+// export const SideMenu = DrawerNavigator({
+//     Tabbar: {
+//         screen: AppTabNav,
+//     },
+
+// },
+//     {
+//         drawerWidth: 300,
+//         drawerPosition: 'left',
+//         contentComponent: props => <Menu {...props} />
+//     }
+// );
