@@ -1,50 +1,112 @@
 // Album detail
 import React, { Component } from 'react';
+import { StyleSheet, ActivityIndicator, ScrollView, Text, View, Button, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ScrollView, Text, View, Button, TouchableOpacity } from 'react-native';
-import { logout } from '../../actions/index';
+import { fetchingPhoto } from '../../actions/index';
 
-import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import GifGrid from './GifGrid';
+import ViewImage from './ViewImage';
+
+import Api from '../../services/Api';
 
 class Detail extends Component {
+    static navigationOptions = ({ navigation, screenProps }) => ({
+        title: navigation.state.params.title,
+    });
+
     constructor(props) {
         super(props);
-        this._onLogOut = this._onLogOut.bind(this);
+        this.state = {
+            isLoading: true,
+            images: [],
+            showFullScreen: false,
+        };
+        this.getImages = this.getImages.bind(this);
+        this.displayFullScreen = this.displayFullScreen.bind(this);
+    }
+
+    getImages() {
+        this.setState({
+            images: this.props.gallery.images,
+            selectedImage: '',
+            isLoading: false,
+        });
+    }
+
+    componentDidMount() {
+        Api.getAllPhoto('FETCHING_PHOTO', this.props.login.user.id, this.props.login.user.accessToken, this.props.gallery.showAlbum.id)
+        .then((images) => {
+            this.props.fetchingPhoto(images);
+        })
+        .then(() => {this.getImages()})
+        .catch((error) => {
+            console.warn(error);
+        });
+
+
+    }
+
+    toggleFullScreen(url) {
+        if(url){
+            Api.getPhoto(url, this.props.login.user.accessToken)
+            .then((photo) => {
+                this.setState({
+                    showFullScreen: !this.state.showFullScreen,
+                    selectedImage: photo[0]['$']['url'],
+                });
+                
+            })
+            .catch((error) => {
+                console.warn(error);
+            });
+        } else {
+            this.setState({
+                    showFullScreen: !this.state.showFullScreen,
+                    selectedImage: '',
+                });
+        }
+    }
+
+    displayFullScreen() {
+        if (this.state.showFullScreen){
+            return (
+                <ViewImage
+                    url={this.state.selectedImage}
+                    onPress={this.toggleFullScreen.bind(this)}
+                />
+            );
+        }
     }
 
     render() {
         return (
-            <ScrollView style={{padding: 20}}>
-                <Text style={{fontSize: 27}}>
-                    Welcome Show All Photo Of Album
-                </Text>
-                {/*<Text style={{fontSize: 25, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.props.login.user.name}</Text>
-                <Text>Your email is: {this.props.login.user.email}</Text>*/}
-
-                <View style={{margin: 20}}>
-                    {<Button onPress={(e) => this._signOut()} title="Logout"/>}
-                </View>
-            </ScrollView>
+            <View style={styles.container}>
+                {this.displayFullScreen()}
+                {<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />}
+                <GifGrid
+                    images={this.state.images}
+                    // images={this.props.gallery.images}
+                    onPress={this.toggleFullScreen.bind(this)}
+                />
+            </View>
         );
     }
-
-    _signOut() {
-        GoogleSignin.revokeAccess().then(() => GoogleSignin.signOut()).then(() => {
-            this.setState({user: null});
-        })
-        .then(() => {this._onLogOut();})
-        .done();
-    }
-
-    _onLogOut() {
-        this.props.logout();
-    }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#dfdfdf',
+  },
+});
 
 export default connect(
     (state) => ({
         login: state.loginReducer,
+        gallery: state.picasaReducer,
     }),
-    {logout}
+    {fetchingPhoto}
 )(Detail);

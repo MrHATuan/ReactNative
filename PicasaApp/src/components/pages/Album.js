@@ -1,8 +1,8 @@
 // List Album
 import React, { Component } from 'react';
+import { StyleSheet, ActivityIndicator, Text, View, Button, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ScrollView, Text, View, Button, TouchableOpacity } from 'react-native';
 import { fetchingAlbum } from '../../actions/index';
 
 import ListAlbum from './ListAlbum';
@@ -14,16 +14,17 @@ class Album extends Component {
         super(props);
 
         this.state = {
-            isLoading: true,
+            isLoadingAlbum: true,
             albums: [],
         };
+        this.getAlbums = this.getAlbums.bind(this);
     }
 
     getAlbums() {
         this.setState({
             albums: this.props.gallery.albums,
             selectedAlbum: '',
-            isLoading: false,
+            isLoadingAlbum: false,
         });
     }
 
@@ -41,9 +42,10 @@ class Album extends Component {
     render() {
         return (
             <View style={styles.container}>
-                {<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />}
+                {<ActivityIndicator animating={this.state.isLoadingAlbum} color="#000" size="large" />}
                 <ListAlbum
                     albums={this.state.albums}
+                    onPress={this.props.navigation.navigate}
                 />
             </View>
         );
@@ -62,6 +64,7 @@ const styles = StyleSheet.create({
 export default connect(
     (state) => ({
         login: state.loginReducer,
+        gallery: state.picasaReducer,
     }),
-    {logout}
+    {fetchingAlbum}
 )(Album);

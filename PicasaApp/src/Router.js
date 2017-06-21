@@ -3,7 +3,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import { StyleSheet, Image } from 'react-native';
 
 import Login from './components/login/Login';
-import Picasa from './components/pages/Picasa';
+import Photo from './components/pages/Photo';
 import Album from './components/pages/Album';
 import Detail from './components/pages/Detail';
 import User from './components/user/User';
@@ -17,8 +17,8 @@ export const AppBeforeLogin = StackNavigator({
     },
 });
 
-export const AppShowPicasa = StackNavigator(
-    { PicasaScreen: { screen: Picasa } },
+export const AppShowPhoto = StackNavigator(
+    { PhotoScreen: { screen: Photo } },
     { headerMode: 'none', }
 );
 
@@ -54,7 +54,7 @@ export const AppTabNav = TabNavigator(
             }
         },
         Image: { 
-            screen: AppShowPicasa,
+            screen: AppShowPhoto,
             navigationOptions: { 
                 tabBarLabel: 'Ảnh',
                 tabBarIcon: ({tintColor}) => (

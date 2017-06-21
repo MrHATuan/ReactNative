@@ -43,7 +43,7 @@ export default class ViewImage extends Component {
       //Portrait
       return {
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').width,
+        height: Dimensions.get('window').height - 30,
       }
     }
   }
@@ -60,13 +60,11 @@ export default class ViewImage extends Component {
           </View>
 
           <View style={styles.container}>
-            <ScrollView maximumZoomScale={5} minimumZoomScale={1}>
-              <LoadingImage
-                imageContainerStyle={styles.imageContainer}
-                url={this.props.url}
-                style={[{resizeMode: 'contain'}, this.calculateThumbSize()]}
-              />
-            </ScrollView>
+            <LoadingImage
+              imageContainerStyle={styles.imageContainer}
+              url={this.props.url}
+              style={[{resizeMode: 'contain'}, this.calculateThumbSize()]}
+            />
           </View>
         </View>
       </Modal>
@@ -79,26 +77,30 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     alignItems: 'center',
+    position: 'relative',
   },
   container: {
     flex: 1,
     alignItems: 'center',
+    position: 'relative',
   },
   imageContainer: {
     flex: 1,
-    marginTop: 15,
-    marginLeft:10,
-    marginRight:10,
-    marginBottom: 10,
+    // marginTop: 15,
+    // marginLeft:10,
+    // marginRight:10,
+    // marginBottom: 15,
   },
   viewClose: {
     position: 'absolute',
-    zIndex: 3,
+    // height: 20,
+    // width: 20,
+    zIndex: 10,
     top: 15,
     left: 15,
   },
   closeBtn: {
-    color: '#808080',
-    fontSize: 30,
+    color: '#fff',
+    fontSize: 25,
   },
 });

@@ -35,11 +35,11 @@
 		2DCD954D1E0B4F2C00145EB5 /* PicasaAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PicasaAppTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		4F353346F272451EA5C2C3BB /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80036C0B38304ECC8E754A98 /* libRNGoogleSignin.a */; };
-		E1E841FA7F2A4D17AC32A76F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABB823A62840248F2D5B58 /* libz.tbd */; };
-		B86108C4A2B54EFB8091206B /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5610DFE2BE4DEB8069853E /* SafariServices.framework */; };
-		6030F78BDEF649E59CF681F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A556C79DBF148D6BE0A1BBC /* SystemConfiguration.framework */; };
-		0815A7DE45D34BD3A3275024 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C749B4BF118747649B89B220 /* AddressBook.framework */; };
+		DA5153CBAB0A428BA0948279 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52837BA1CACA44CCB7B27E05 /* libRNGoogleSignin.a */; };
+		08411CDA4A794964A412222E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D22E2F4F8241F3A1658735 /* libz.tbd */; };
+		7A19932D3A3F439E9DF24BEC /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94E4F2C63CE4EAF8FDD8182 /* SafariServices.framework */; };
+		A21B8ABDCC5E41D08345B2E0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D83C13F1BD4656B4C82928 /* SystemConfiguration.framework */; };
+		8AC3F1B4A0EE4510828747FE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B713AEA2B544B1B84EB3CDA /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,12 +259,12 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		BE9C804581F1426493679B24 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; name = "RNGoogleSignin.xcodeproj"; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		80036C0B38304ECC8E754A98 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; name = "libRNGoogleSignin.a"; path = "libRNGoogleSignin.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		E2ABB823A62840248F2D5B58 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
-		0F5610DFE2BE4DEB8069853E /* SafariServices.framework */ = {isa = PBXFileReference; name = "SafariServices.framework"; path = "System/Library/Frameworks/SafariServices.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		4A556C79DBF148D6BE0A1BBC /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		C749B4BF118747649B89B220 /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		42DEE3F983FA46BD9D928336 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; name = "RNGoogleSignin.xcodeproj"; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		52837BA1CACA44CCB7B27E05 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; name = "libRNGoogleSignin.a"; path = "libRNGoogleSignin.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		34D22E2F4F8241F3A1658735 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		E94E4F2C63CE4EAF8FDD8182 /* SafariServices.framework */ = {isa = PBXFileReference; name = "SafariServices.framework"; path = "System/Library/Frameworks/SafariServices.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		C4D83C13F1BD4656B4C82928 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		3B713AEA2B544B1B84EB3CDA /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,11 +291,11 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				4F353346F272451EA5C2C3BB /* libRNGoogleSignin.a in Frameworks */,
-				E1E841FA7F2A4D17AC32A76F /* libz.tbd in Frameworks */,
-				B86108C4A2B54EFB8091206B /* SafariServices.framework in Frameworks */,
-				6030F78BDEF649E59CF681F2 /* SystemConfiguration.framework in Frameworks */,
-				0815A7DE45D34BD3A3275024 /* AddressBook.framework in Frameworks */,
+				DA5153CBAB0A428BA0948279 /* libRNGoogleSignin.a in Frameworks */,
+				08411CDA4A794964A412222E /* libz.tbd in Frameworks */,
+				7A19932D3A3F439E9DF24BEC /* SafariServices.framework in Frameworks */,
+				A21B8ABDCC5E41D08345B2E0 /* SystemConfiguration.framework in Frameworks */,
+				8AC3F1B4A0EE4510828747FE /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +462,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				BE9C804581F1426493679B24 /* RNGoogleSignin.xcodeproj */,
+				42DEE3F983FA46BD9D928336 /* RNGoogleSignin.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -483,7 +483,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* PicasaAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-				2A6346FF52D2450586D0119E /* Frameworks */,
+				7FAE26CE7734490695EE726F /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -500,13 +500,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2A6346FF52D2450586D0119E /* Frameworks */ = {
+		7FAE26CE7734490695EE726F /* Frameworks */ = {
 			isa = "PBXGroup";
 			children = (
-				E2ABB823A62840248F2D5B58 /* libz.tbd */,
-				0F5610DFE2BE4DEB8069853E /* SafariServices.framework */,
-				4A556C79DBF148D6BE0A1BBC /* SystemConfiguration.framework */,
-				C749B4BF118747649B89B220 /* AddressBook.framework */,
+				34D22E2F4F8241F3A1658735 /* libz.tbd */,
+				E94E4F2C63CE4EAF8FDD8182 /* SafariServices.framework */,
+				C4D83C13F1BD4656B4C82928 /* SystemConfiguration.framework */,
+				3B713AEA2B544B1B84EB3CDA /* AddressBook.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

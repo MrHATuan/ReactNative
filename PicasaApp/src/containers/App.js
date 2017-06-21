@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Provider, connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import configureStore from '../store/configureStore';
 import { getLogin } from '../reducers/index';
+import { login } from '../actions/index';
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 

@@ -7,6 +7,7 @@ const initialState = {
     fetchingPhoto: false,
     fetchingAlbum: false,
     viewPhoto: undefined,
+    showAlbum: undefined,
     scrollOffsetY: 0,
     images: [],
     albums: [],
@@ -18,28 +19,33 @@ export default function gallery(state = initialState, action) {
             return {
                 ...state,
                 fetchingPhoto: true,
-                images: action.images
+                images: action.images,
             };
         case actionTypes.FETCHING_ALBUM:
             return {
                 ...state,
                 fetchingAlbum: true,
-                albums: action.albums
+                albums: action.albums,
+            };
+        case actionTypes.SHOW_ALBUM:
+            return {
+                ...state,
+                showAlbum: action.album,
             };
         case actionTypes.VIEW_PHOTO:
             return {
                 ...state,
-                viewPhoto: action.photo
+                viewPhoto: action.photo,
             };
         case actionTypes.CLOSE_PHOTO:
             return {
                 ...state,
-                viewPhoto: undefined
+                viewPhoto: undefined,
             };
         case actionTypes.SET_SCROLL_OFFSET_Y:
             return {
                 ...state,
-                scrollOffsetY: action.offset
+                scrollOffsetY: action.offset,
             };
         default: 
             return state;

@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "125267211347-f06mnei5e4r9ak2q5fpp4q11cthkenl3.apps.googleusercontent.com",
+          "client_id": "125267211347-s4cpnihpbu3pf7ncg09lbnrthqq0qap2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.picasaapp",
-            "certificate_hash": "7743d2822940b14a3f4238c75b5804a53ec46e10"
+            "certificate_hash": "72f198033fdd30e15b9984bb431a9b7e83308936"
           }
         },
         {
@@ -43,6 +43,13 @@
         "appinvite_service": {
           "status": 2,
           "other_platform_oauth_client": [
+            {
+              "client_id": "125267211347-rgk23m97vdc4i2i9co5pk3604cs4ic3s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.picasaapp"
+              }
+            },
             {
               "client_id": "125267211347-akmkjosfjfrskuoej7fe5866kubhpj5j.apps.googleusercontent.com",
               "client_type": 3

@@ -21,6 +21,10 @@ export function fetchingAlbum(albums) {
     return { type: actionTypes.FETCHING_ALBUM, albums };
 }
 
+export function showAlbum(album) {
+    return { type: actionTypes.SHOW_ALBUM, album };
+}
+
 export function doneFetching() {
     return { type: actionTypes.DONE_FETCHING };
 }

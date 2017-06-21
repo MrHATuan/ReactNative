@@ -63,7 +63,6 @@ export default class GifGrid extends Component {
         >
           <View style={styles.gridContainer}>
             {this.props.images.map((image) => {
-              console.log(image);
               return (
                 <TouchableOpacity
                   key={'touchable' + image.id}

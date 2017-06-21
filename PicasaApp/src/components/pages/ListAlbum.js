@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet, View, Text, Image,
+  StyleSheet, View, Text, Image, Button,
   ScrollView,
   Dimensions,
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { showAlbum } from '../../actions/index';
 
-export default class GifGrid extends Component {
+import LoadingImage from './LoadingImage';
+
+class ListAlbum extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isLoading: false,
-      noMorePhotos: false,
+      isLoadingAlbum: false,
     };
+    this._goToDetailPhoto = this._goToDetailPhoto.bind(this);
     this.calculateThumbSize = this.calculateThumbSize.bind(this);
   }
 
@@ -34,24 +38,37 @@ export default class GifGrid extends Component {
     }
   }
 
+  _goToDetailPhoto(album) {
+    this.props.showAlbum(album);
+    this.props.onPress('DetailAlbum', {title: album.title._});
+  }
+
   render() {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scroll}>
                 <View style={styles.gridContainer}>
                     {this.props.albums.map((album) => {
-                        <TouchableOpacity
-                            // key={'touchable' + album.id}
-                            // onPress={() => this.props.onPress(album.link)}
-                        >
-                            <View style={styles.albumContainer}>
-                                <Text>this album</Text>
-                                {/*<Image source={{uri: album.url}} style={this.calculateThumbSize()} />*/}
-                            </View>
-                        </TouchableOpacity>
+                        return (
+                          <TouchableOpacity
+                              key={'touchable' + album.id}
+                              onPress={(e) => this._goToDetailPhoto(album)} 
+                          >
+                              <LoadingImage
+                                key={album.id}
+                                imageContainerStyle={styles.albumContainer}
+                                url={album.thumbnail[0]['$']['url']}
+                                style={ this.calculateThumbSize() }
+                              />
+                              <View style={styles.albumInfor}>
+                                  <Text style={styles.albumTitle}>{album.title._}</Text>
+                                  <Text style={styles.albumNumPhoto}>{album.numphoto} ảnh</Text>
+                              </View>
+                          </TouchableOpacity>
+                        );
                     })}
                 </View>
-                {<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />}
+                {<ActivityIndicator animating={this.state.isLoadingAlbum} color="#000" size="large" />}
             </ScrollView>
         </View>
     );
@@ -74,8 +91,21 @@ const styles = StyleSheet.create({
   },
   albumContainer: {
     margin: 10,
-    // borderWidth: 7,
-    // backgroundColor: 'white',
-    // borderColor: 'white',
+  },
+  albumInfor: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
+  },
+  albumTitle: {
+    fontSize: 17,
+    fontWeight: '400',
+    color: '#000',
+  },
+  albumNumPhoto: {
+    fontSize: 14,
+    fontWeight: '100',
   },
 });
+
+export default connect(null, {showAlbum})(ListAlbum);
