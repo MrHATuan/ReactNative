@@ -6,7 +6,7 @@ import { getLogin } from './reducers/index';
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 
-import { AppBeforeLogin, AppTabNav } from './Router';
+import { AppBeforeLogin, HomeStack } from './Router';
 
 class App extends Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class App extends Component {
         if (this.props.login.isLoggedIn && this.props.login.user) {
             // console.log("Go to All Photo");
             return (
-                <AppTabNav />
+                <HomeStack />
             );
         } else {
             // console.log("Go to Login");

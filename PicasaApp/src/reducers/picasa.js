@@ -1,16 +1,16 @@
 import * as actionTypes from '../constants/actionTypes';
 
 const initialState = {
-    title: 'snaps',
     hasLoadedPhoto: false,
     hasLoadedAlbum: false,
     fetchingPhoto: false,
     fetchingAlbum: false,
     viewPhoto: undefined,
     showAlbum: undefined,
-    scrollOffsetY: 0,
     images: [],
     albums: [],
+    imageUpload: undefined,
+    albumUpload: undefined,
 };
 
 export default function gallery(state = initialState, action) {
@@ -35,17 +35,22 @@ export default function gallery(state = initialState, action) {
         case actionTypes.VIEW_PHOTO:
             return {
                 ...state,
-                viewPhoto: action.photo,
+                viewPhoto: action.image,
             };
         case actionTypes.CLOSE_PHOTO:
             return {
                 ...state,
                 viewPhoto: undefined,
             };
-        case actionTypes.SET_SCROLL_OFFSET_Y:
+        case actionTypes.ADD_PHOTOS:
             return {
                 ...state,
-                scrollOffsetY: action.offset,
+                imageUpload: action.images
+            };
+        case actionTypes.ADD_ALBUM:
+            return {
+                ...state,
+                albumUpload: action.album
             };
         default: 
             return state;

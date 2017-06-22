@@ -29,12 +29,12 @@ export function doneFetching() {
     return { type: actionTypes.DONE_FETCHING };
 }
 
-export function viewPhoto(photo) {
-    return { type: actionTypes.VIEW_PHOTO, photo };
+export function viewPhoto(image) {
+    return { type: actionTypes.VIEW_PHOTO, image };
 }
 
-export function closePhoto(photo) {
-    return { type: actionTypes.CLOSE_PHOTO, photo };
+export function closePhoto(image) {
+    return { type: actionTypes.CLOSE_PHOTO, image };
 }
 
 export function setScrollOffsetY(offset) {
@@ -50,10 +50,10 @@ export function delAlbum(album) {
     return { type: actionTypes.DEL_ALBUM, album };
 }
 
-export function addPhotos(photos) {
-    return { type: actionTypes.ADD_PHOTOS, photos };
+export function addPhotos(images) {
+    return { type: actionTypes.ADD_PHOTOS, images };
 }
 
-export function delPhotos(photos) {
-    return { type: actionTypes.DEL_PHOTOS, photos };
+export function delPhotos(images) {
+    return { type: actionTypes.DEL_PHOTOS, images };
 }

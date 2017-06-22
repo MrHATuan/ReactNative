@@ -20,6 +20,7 @@ const buildApiURL = (apiType, userId, albumId) => {
         case actionTypes.ADD_ALBUM:
             break;
         case actionTypes.ADD_PHOTOS:
+            url += userId + PICASA.ADD_PHOTOS;
             break;
         default:
             url;
@@ -40,7 +41,11 @@ const getApiInfor = (accessToken) => {
 const postApiInfor = (accessToken) => {
     return info = {
         method: 'POST',
-
+        headers: {
+            'GData-Version':  2,
+            'Content-Type': 'multipart/related; boundary=P4CpLdIHZpYqNn7;',
+            'Authorization': 'Bearer ' + accessToken,
+        },
     };
 };
 
@@ -89,15 +94,17 @@ const Api = {
                 var parseString = require('react-native-xml2js').parseString;
 
                 parseString(responseText, function (error, photoInfors) {
-                    photoInfors.feed.entry.forEach(function(photoEntry) {
-                        var id        = photoEntry['gphoto:id'][0];
-                        var link      = photoEntry['id'][0];
-                        var title     = photoEntry['title'][0][1];
-                        var timestamp = photoEntry['gphoto:timestamp'][0];
-                        var thumbnail = photoEntry['media:group'][0]['media:thumbnail'];
+                    if(photoInfors.feed.entry) {
+                        photoInfors.feed.entry.forEach(function(photoEntry) {
+                            var id        = photoEntry['gphoto:id'][0];
+                            var link      = photoEntry['id'][0];
+                            var title     = photoEntry['title'][0][1];
+                            var timestamp = photoEntry['gphoto:timestamp'][0];
+                            var thumbnail = photoEntry['media:group'][0]['media:thumbnail'];
 
-                        images.push({id: id, link: link, title: title, timestamp: timestamp, thumbnail: thumbnail});
-                    });
+                            images.push({id: id, link: link, title: title, timestamp: timestamp, thumbnail: thumbnail});
+                        });
+                    }
                 });
                 resolve(images);
             })
@@ -126,6 +133,48 @@ const Api = {
                 console.error(error);
             })
         });
+    },
+
+    uploadAlbum: () => {
+        return false;
+    },
+
+    uploadPhoto: (apiType, userId, accessToken, images) => {
+        var rawImgXml = '';
+        if (images ) {
+            rawImgXml = 'Content-Type: multipart/related; boundary="END_OF_PART"\n' +
+                        'Content-Length: '+ images[0]['fileSize'] +'\n' +
+                        'MIME-version: 1.0\n\n' +
+                        'Media multipart posting\n' +
+                        '--END_OF_PART\n' +
+                        'Content-Type: application/atom+xml\n\n' +
+                        '<entry xmlns="http://www.w3.org/2005/Atom">\n' +
+                            '<title>'+ images[0]['fileName'] +'</title>\n' +
+                            '<summary></summary>\n' +
+                            '<category scheme="http://schemas.google.com/g/2005#kind"\n' +
+                                'term="http://schemas.google.com/photos/2007#photo"/>\n' +
+                        '</entry>\n' +
+                        '--END_OF_PART\n' +
+                        'Content-Type: image/jpeg\n' +
+                        'Content-Length: '+ images[0]['fileSize'] +'\n' +
+                        'Slug: '+ images[0]['uri'] +'\n' +
+                        '--END_OF_PART--';
+
+            return new Promise((resolve, reject) => {
+                fetch(buildApiURL(apiType, userId), postApiInfor(accessToken))
+                .then((response) => response.text())
+                .then((responseText) => {
+                    console.log(responseText);
+
+                    resolve(rawImgXml);
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
+            });
+        }
+
+        
     },
 };
 

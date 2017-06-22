@@ -103,6 +103,7 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
         multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
     }
     splits {
         abi {
@@ -141,6 +142,8 @@ dependencies {
         exclude group: "com.google.android.gms"
     }
     compile 'com.google.android.gms:play-services-auth:9.2.1'
+    compile project(':react-native-image-picker')
+    compile project(':react-native-image-crop-picker')
 }
 
 apply plugin: 'com.google.gms.google-services'

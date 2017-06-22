@@ -5,4 +5,5 @@ export const PICASA = {
     All_PHOTO: '?kind=photo',
     All_ALBUM: '?kind=album&access=visible',
     PHOTO_OF_ALBUM: '/albumid/',
+    ADD_PHOTOS: '/albumid/default',
 };

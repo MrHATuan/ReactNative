@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { fetchingAlbum } from '../../actions/index';
 
 import ListAlbum from './ListAlbum';
+import MenuAdd from './MenuAdd';
 
 import Api from '../../services/Api';
 
@@ -15,7 +16,7 @@ class Album extends Component {
 
         this.state = {
             isLoadingAlbum: true,
-            albums: [],
+            albums: null,
         };
         this.getAlbums = this.getAlbums.bind(this);
     }
@@ -39,14 +40,24 @@ class Album extends Component {
         });
     }
 
-    render() {
-        return (
-            <View style={styles.container}>
-                {<ActivityIndicator animating={this.state.isLoadingAlbum} color="#000" size="large" />}
+    displayAllAlbum() {
+        if(this.state.albums) {
+            return (
                 <ListAlbum
                     albums={this.state.albums}
                     onPress={this.props.navigation.navigate}
                 />
+            );
+        }
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                {<ActivityIndicator animating={this.state.isLoadingAlbum} color="#000" size="large" />}
+                {this.displayAllAlbum()}
+
+                <MenuAdd onPress={this.props.navigation.navigate} />
             </View>
         );
     }

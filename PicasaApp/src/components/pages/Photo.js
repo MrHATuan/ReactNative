@@ -7,8 +7,7 @@ import { fetchingPhoto } from '../../actions/index';
 
 import GifGrid from './GifGrid';
 import ViewImage from './ViewImage';
-
-import Menu from './Menu';
+import MenuAdd from './MenuAdd';
 
 import Api from '../../services/Api';
 
@@ -17,7 +16,7 @@ class Photo extends Component {
         super(props);
         this.state = {
             isLoading: true,
-            images: [],
+            images: null,
             // offSet: 0,
             // page: 1,
             showFullScreen: false,
@@ -77,16 +76,25 @@ class Photo extends Component {
         }
     }
 
-    render() {
-        return (
-            <View style={styles.container}>
-                {this.displayFullScreen()}
-                {<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />}
+    displayAllPhoto() {
+        if(this.state.images) {
+            return (
                 <GifGrid
                     images={this.state.images}
                     onPress={this.toggleFullScreen.bind(this)}
                 />
-                <Menu />
+            );
+        }
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                {<ActivityIndicator animating={this.state.isLoading} color="#000" size="large" />}
+                {this.displayFullScreen()}
+                {this.displayAllPhoto()}
+
+                <MenuAdd onPress={this.props.navigation.navigate} />
             </View>
         );
     }

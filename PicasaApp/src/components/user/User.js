@@ -38,11 +38,9 @@ class User extends Component {
                             <View style={Style.flex7}>
                                 <View style={Style.userContent}>
                                     <View style={Style.viewContent}>
-                                        {/*<Text style={Style.textContent}>Hoang Tuan</Text>*/}
                                         <Text style={Style.textContent}>{this.props.login.user.name}</Text>
                                     </View>
                                     <View style={Style.viewContent}>
-                                        {/*<Text style={Style.textContent}>tuantaitu2904@gmail.com</Text>*/}
                                         <Text style={Style.textContent}>{this.props.login.user.email}</Text>
                                     </View>
                                 </View>

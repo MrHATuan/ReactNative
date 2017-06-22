@@ -7,8 +7,9 @@ import Photo from './components/pages/Photo';
 import Album from './components/pages/Album';
 import Detail from './components/pages/Detail';
 import User from './components/user/User';
-import Menu from './components/pages/Menu';
+import AddAlbum from './components/pages/AddAlbum';
 
+// Login Screen
 export const AppBeforeLogin = StackNavigator({
     LoginScreen: {
         screen: Login,
@@ -18,11 +19,6 @@ export const AppBeforeLogin = StackNavigator({
     },
 });
 
-export const AppShowPhoto = StackNavigator(
-    { PhotoScreen: { screen: Photo } },
-    { headerMode: 'none', }
-);
-
 export const AppShowAlbum = StackNavigator(
     {
         AlbumScreen: { screen: Album,
@@ -30,21 +26,16 @@ export const AppShowAlbum = StackNavigator(
                 header: null,
             }
         },
-        DetailAlbum: { screen: Detail }
+        DetailAlbum: { screen: Detail },
     },
     { initialRouteName: 'AlbumScreen', }
-);
-
-export const AppUser = StackNavigator(
-    { UserDetail: { screen: User, } },
-    { headerMode: 'none', }
 );
 
 // Tab Navigator
 export const AppTabNav = TabNavigator(
     {
         User: { 
-            screen: AppUser,
+            screen: User,
             navigationOptions: { 
                 tabBarLabel: 'User',
                 tabBarIcon: ({tintColor}) => (
@@ -55,7 +46,7 @@ export const AppTabNav = TabNavigator(
             }
         },
         Image: { 
-            screen: AppShowPhoto,
+            screen: Photo,
             navigationOptions: { 
                 tabBarLabel: 'Ảnh',
                 tabBarIcon: ({tintColor}) => (
@@ -97,15 +88,13 @@ export const AppTabNav = TabNavigator(
     }
 );
 
-// export const SideMenu = DrawerNavigator({
-//     Tabbar: {
-//         screen: AppTabNav,
-//     },
-
-// },
-//     {
-//         drawerWidth: 300,
-//         drawerPosition: 'left',
-//         contentComponent: props => <Menu {...props} />
-//     }
-// );
+// Home Route
+export const HomeStack = StackNavigator({
+    Home: {
+        screen: AppTabNav,
+        navigationOptions: {
+            header: null,
+        },
+    },
+    AddAlbumPage: { screen: AddAlbum },
+});
