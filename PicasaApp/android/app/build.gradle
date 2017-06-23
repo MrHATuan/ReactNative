@@ -144,6 +144,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:9.2.1'
     compile project(':react-native-image-picker')
     compile project(':react-native-image-crop-picker')
+    compile project(':react-native-fetch-blob')
 }
 
 apply plugin: 'com.google.gms.google-services'

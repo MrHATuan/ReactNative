@@ -1,6 +1,7 @@
 
 import { BASE_URL, PICASA} from '../constants/apiTypes';
 import * as actionTypes from '../constants/actionTypes';
+import RNFetchBlob from 'react-native-fetch-blob';
 
 const buildApiURL = (apiType, userId, albumId) => {
     let url = BASE_URL;
@@ -38,16 +39,29 @@ const getApiInfor = (accessToken) => {
         },
     };
 };
-const postApiInfor = (accessToken) => {
+const postApiInfor = (accessToken, length, body) => {
     return info = {
         method: 'POST',
         headers: {
-            'GData-Version':  2,
-            'Content-Type': 'multipart/related; boundary=P4CpLdIHZpYqNn7;',
+            'GData-Version': '2',
+            'Content-Type': 'multipart/related; boundary="END_OF_PART"',
+            'Content-Length': length,
+            'MIME-version': '1.0',
             'Authorization': 'Bearer ' + accessToken,
         },
+        body: body,
     };
 };
+
+const toBinary = (str) => {
+    var binary = "";
+
+    for (i = 0; i < str.length; i++) {
+        binary +=str[i].charCodeAt(0).toString(2);
+    }
+
+    return binary
+}
 
 const Api = {
     getAllAlbum: (apiType, userId, accessToken) => {
@@ -142,35 +156,46 @@ const Api = {
     uploadPhoto: (apiType, userId, accessToken, images) => {
         var rawImgXml = '';
         if (images ) {
-            rawImgXml = 'Content-Type: multipart/related; boundary="END_OF_PART"\n' +
-                        'Content-Length: '+ images[0]['fileSize'] +'\n' +
-                        'MIME-version: 1.0\n\n' +
+            // console.log(RNFetchBlob.wrap(images[0]['uri']));
+            // console.log(RNFetchBlob.base64.encode(images[0]['data']));
+
+            // rawImgXml = 'Content-Type: multipart/related; boundary="END_OF_PART"\n' +
+                        // 'Content-Length: 423478347\n' +
+                        // 'MIME-version: 1.0\n\n' +
+            rawImgXml = '' +
                         'Media multipart posting\n' +
                         '--END_OF_PART\n' +
                         'Content-Type: application/atom+xml\n\n' +
                         '<entry xmlns="http://www.w3.org/2005/Atom">\n' +
                             '<title>'+ images[0]['fileName'] +'</title>\n' +
-                            '<summary></summary>\n' +
-                            '<category scheme="http://schemas.google.com/g/2005#kind"\n' +
-                                'term="http://schemas.google.com/photos/2007#photo"/>\n' +
+                            '<summary>This my images</summary>\n' +
+                            '<category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/photos/2007#photo"/>\n' +
                         '</entry>\n' +
                         '--END_OF_PART\n' +
-                        'Content-Type: image/jpeg\n' +
+                        'Content-Type: '+ images[0]['type'] +'\n' +
                         'Content-Length: '+ images[0]['fileSize'] +'\n' +
-                        'Slug: '+ images[0]['uri'] +'\n' +
+                        'Slug: '+ images[0]['fileName'] + '\n' +
+                        // 'Slug: '+ images[0]['uri'] + '\n' + RNFetchBlob.base64.encode(images[0]['data']) + '\n' +
+                        images[0]['data'] + '\n' +
+                        // RNFetchBlob.base64.encode(images[0]['data']) + '\n' +
                         '--END_OF_PART--';
 
+            console.log('image: ', rawImgXml);
+
             return new Promise((resolve, reject) => {
-                fetch(buildApiURL(apiType, userId), postApiInfor(accessToken))
+                fetch(buildApiURL(apiType, userId), postApiInfor(accessToken, rawImgXml.length, rawImgXml))
                 .then((response) => response.text())
                 .then((responseText) => {
-                    console.log(responseText);
+                    console.log('response: ', responseText);
 
                     resolve(rawImgXml);
                 })
                 .catch((error) => {
                     console.error(error);
                 })
+
+
+
             });
         }
 

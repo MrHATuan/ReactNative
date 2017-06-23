@@ -78,7 +78,7 @@ class AddAlbum extends Component {
     }
 
     render() {
-        // console.log(this.props.gallery.imageUpload);
+        // console.log(this.props.gallery.imageUpload[0]['data']);
         return (
             <View style={styles.container}>
                 <ScrollView style={styles.scroll}>
