@@ -52,7 +52,6 @@ class Photo extends Component {
                     showFullScreen: !this.state.showFullScreen,
                     selectedImage: photo[0]['$']['url'],
                 });
-                
             })
             .catch((error) => {
                 console.warn(error);

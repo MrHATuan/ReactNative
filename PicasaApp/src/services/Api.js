@@ -39,7 +39,7 @@ const getApiInfor = (accessToken) => {
         },
     };
 };
-const postApiInfor = (accessToken, length, body) => {
+const postApiInfor = (accessToken, length, data) => {
     return info = {
         method: 'POST',
         headers: {
@@ -49,7 +49,10 @@ const postApiInfor = (accessToken, length, body) => {
             'MIME-version': '1.0',
             'Authorization': 'Bearer ' + accessToken,
         },
-        body: body,
+        body: data,
+        // body: JSON.stringify({
+        //     data: data,
+        // })
     };
 };
 
@@ -156,8 +159,10 @@ const Api = {
     uploadPhoto: (apiType, userId, accessToken, images) => {
         var rawImgXml = '';
         if (images ) {
-            // console.log(RNFetchBlob.wrap(images[0]['uri']));
-            // console.log(RNFetchBlob.base64.encode(images[0]['data']));
+            // console.log('file: ',RNFetchBlob.wrap(images[0]['uri']));
+            // console.log(images[0]['uri']);
+
+            // var file = RNFetchBlob.wrap(images[0]['uri']);
 
             // rawImgXml = 'Content-Type: multipart/related; boundary="END_OF_PART"\n' +
                         // 'Content-Length: 423478347\n' +
@@ -172,12 +177,15 @@ const Api = {
                             '<category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/photos/2007#photo"/>\n' +
                         '</entry>\n' +
                         '--END_OF_PART\n' +
-                        'Content-Type: '+ images[0]['type'] +'\n' +
-                        'Content-Length: '+ images[0]['fileSize'] +'\n' +
-                        'Slug: '+ images[0]['fileName'] + '\n' +
+                        'Content-Type: '+ images[0]['type'] +'\n\n' +
+                        // 'Content-Length: '+ images[0]['fileSize'] +'\n\n' +
+                        // 'Slug: '+ images[0]['fileName'] + '\n' +
                         // 'Slug: '+ images[0]['uri'] + '\n' + RNFetchBlob.base64.encode(images[0]['data']) + '\n' +
                         images[0]['data'] + '\n' +
                         // RNFetchBlob.base64.encode(images[0]['data']) + '\n' +
+                        // file + '\n' +
+                        // toBinary(images[0]['data']) + '\n' +
+                        // atob(images[0]['data']) + '\n' +
                         '--END_OF_PART--';
 
             console.log('image: ', rawImgXml);
@@ -194,12 +202,8 @@ const Api = {
                     console.error(error);
                 })
 
-
-
             });
         }
-
-        
     },
 };
 

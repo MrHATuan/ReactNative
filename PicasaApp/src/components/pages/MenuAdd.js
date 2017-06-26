@@ -5,7 +5,6 @@ import { StyleSheet, Animated, TouchableOpacity,
 import { connect } from 'react-redux';
 import { addPhotos } from '../../actions/index';
 import ImagePicker from 'react-native-image-picker';
-// import ImagePicker from 'react-native-image-crop-picker';
 
 class MenuAdd extends Component {
     constructor(props) {
@@ -17,8 +16,6 @@ class MenuAdd extends Component {
         const options = {
             title: 'Select Picture',
             quality: 1.0,
-            maxWidth: 500,
-            maxHeight: 500,
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
@@ -40,20 +37,22 @@ class MenuAdd extends Component {
 
                 var images = [];
                 images.push(response);
+
+                // Api.uploadPhoto('ADD_PHOTOS',  this.props.login.user.id, this.props.login.user.accessToken, this.props.gallery.imageUpload)
+                // .then((images) => {
+                //     // Add response
+                //     this.props.addPhotos(images);
+                // }) .then(() => {
+                //     this.props.onPress('AddAlbumPage')
+                // }).catch((error) => {
+                //     console.warn(error);
+                // });
+
+                Api.uploadPhoto('ADD_PHOTOS',  this.props.login.user.id, this.props.login.user.accessToken, this.props.gallery.imageUpload);
                 this.props.addPhotos(images);
                 this.props.onPress('AddAlbumPage');
             }
         });
-
-        // ImagePicker.openPicker({
-        //     multiple: true,
-        //     waitAnimationEnd: false
-        // }).then(images => {
-        //     this.props.addPhotos(images);
-        //     this.props.onPress('AddAlbumPage');
-        // }).catch((error) => {
-        //     console.warn(error);
-        // });
     }
 
     render() {

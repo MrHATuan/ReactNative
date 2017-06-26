@@ -28,8 +28,6 @@ class AddAlbum extends Component {
 
     componentDidMount() {
         this.setState({ images: this.props.gallery.imageUpload});
-
-        Api.uploadPhoto('ADD_PHOTOS',  this.props.login.user.id, this.props.login.user.accessToken, this.props.gallery.imageUpload);
     }
 
     calculateThumbSize() {
